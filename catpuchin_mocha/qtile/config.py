@@ -156,7 +156,7 @@ layouts = [
     #layout.Columns(border_focus_stack=["#00000000", "#CBA6F7"], border_width=2),
     layout.MonadTall(
         border_width=2,
-        margin=4,
+        margin=8,
         border_focus=colors[14],
         border_normal=colors[23],
     ),
@@ -239,7 +239,7 @@ screens = [
                     decorations=[
                         RectDecoration(
                             colour=colors[14],
-                            radius=0, #radius=3,
+                            radius=2,
                             filled=True,
                         )
                     ],
@@ -271,7 +271,7 @@ screens = [
                     decorations=[
                         RectDecoration(
                             colour=colors[1],
-                            radius=0, #radius=3,
+                            radius=2,
                             filled=True,
                         )
                     ],
@@ -285,7 +285,7 @@ screens = [
                     decorations=[
                         RectDecoration(
                             colour=colors[3],
-                            radius=0, #radius=3,
+                            radius=2,
                             filled=True,
                         )
                     ],
@@ -314,6 +314,14 @@ screens = [
                     device='PCM',
                     theme_path='/home/suedyash/.icons/Paper-Mono-Dark/',
                     bar_width=25,
+                    padding=4,
+                    decorations=[
+                        RectDecoration(
+                            colour=colors[8],
+                            radius=[2, 0, 0, 2],
+                            filled=True,
+                        )
+                    ],
                 ),
 
                 widget.TextBox(
@@ -380,7 +388,7 @@ screens = [
                     decorations=[
                         RectDecoration(
                             colour=colors[8],
-                            radius=0, #radius=[0, 3, 3, 0],
+                            radius=[0, 2, 2, 0],
                             filled=True,
                         )
                     ],
@@ -396,7 +404,7 @@ screens = [
                     decorations=[
                         RectDecoration(
                             colour=colors[7],
-                            radius=0, #radius=[3, 0, 0, 3],
+                            radius=[2, 0, 0, 2],
                             filled=True,
                         )
                     ],
@@ -461,7 +469,7 @@ screens = [
                     decorations=[
                         RectDecoration(
                             colour=colors[7],
-                            radius=0, #radius=[0, 3, 3, 0],
+                            radius=[0, 2, 2, 0],
                             filled=True,
                         )
                     ],
@@ -470,10 +478,10 @@ screens = [
             ],
             size=24,
             border_width=4, #border_width=4,
-            border_color="#00000000",
+            border_color="#181825",
             margin=[0, 0, 0, 0], #margin=[8, 8, 0, 8],
-            background="#00000000",
-            opacity=0.88,
+            background="#181825",
+            opacity=0.69,
             name="topbar",
         ),
     ),
