@@ -25,7 +25,7 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    width: 768;
+    width: 768px;
     height: 480px;
     border: 2px;
     border-color: @lavender;
