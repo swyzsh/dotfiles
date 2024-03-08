@@ -1,0 +1,118 @@
+* {
+    bg-col:  #1e1e2e;
+    bg-col-light: #1e1e2e;
+    border-col: #89b4fa;
+    selected-col: #1e1e2e;
+    blue: #89b4fa;
+    fg-col: #f8f8f2;
+    text: #CDD6F4;
+    crust: #11111B;
+    purple: #bd93f9;
+    red: #ff5555;
+    foreground: #f8f8f2;
+    green: rgba (80, 250, 123, 88%);
+    transparent: #00000000;
+    base-translucent: rgba (68, 71, 90, 50%);
+    base: #282a36;
+    crust-translucent: rgba (17, 17, 27, 33%);
+    font: "IBM Plex Mono 11";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    width: 768px;
+    height: 480px;
+    border: 2px;
+    border-color: @base-translucent;
+    background-color: @crust-translucent;
+}
+
+mainbox {
+    background-color: @transparent;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @transparent;
+    border-radius: 0px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: @base;
+    padding: 4px;
+    text-color: @red;
+    border-radius: 0px;
+    margin: 10px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 4px;
+    margin: 10px 0px 0px 10px;
+    text-color: @fg-col;
+    background-color: @transparent;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 4px 0px 4px;
+    margin: 10px 0px 0px 10px;
+    columns: 2;
+    lines: 5;
+    background-color: @transparent;
+}
+
+element {
+    padding: 4px;
+    background-color: @transparent;
+    text-color: @fg-col  ;
+}
+
+element-icon {
+    size: 32px;
+}
+
+element selected {
+    background-color:  @base;
+    text-color: @green;
+}
+
+mode-switcher {
+    spacing: 0;
+  }
+
+button {
+    padding: 4px;
+    background-color: @bg-col-light;
+    text-color: @text;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @bg-col;
+  text-color: @blue;
+}
+
+message {
+    background-color: @bg-col-light;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 0px;
+}
+
+textbox {
+    padding: 4px;
+    margin: 10px 0px 0px 10px;
+    text-color: @blue;
+    background-color: @bg-col-light;
+}
