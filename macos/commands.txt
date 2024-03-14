@@ -1,0 +1,8 @@
+Here are some good default commands for fresh install, just paste them in terminal:
+
+1. Make the hidden app's icon appear as translucent in dock for visual representation.
+    
+    $ defaults write com.apple.Dock showhidden -bool YES
+    $ killall Dock
+
+2. 
