@@ -5,4 +5,11 @@ Here are some good default commands for fresh install, just paste them in termin
     $ defaults write com.apple.Dock showhidden -bool YES
     $ killall Dock
 
-2. 
+2. Remove annoying .DS_Store from gits:
+
+# remove any existing files from the repo, skipping over ones not in repo
+    $ find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+# specify a global exclusion list
+    $ git config --global core.excludesfile ~/.gitignore
+# adding .DS_Store to that lsit
+    $ echo .DS_Store >> ~/.gitignore
