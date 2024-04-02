@@ -13,3 +13,16 @@ Here are some good default commands for fresh install, just paste them in termin
     $ git config --global core.excludesfile ~/.gitignore
 # adding .DS_Store to that lsit
     $ echo .DS_Store >> ~/.gitignore
+
+3. Fix Weird Apple Display Scaling by using displayplacer app from homebrew:
+
+# make sure you installed homebrew
+# tap into jakehilborn's repo
+  $ brew tap jakehilborn/jakehilborn && brew install displayplacer
+
+# run following command to get display id
+  $ displayplacer list
+
+# get the display id, and figure out which mode you wish to select 'select scaling: on for HiDPI'
+# run the following command to fix the display 'replace <DISPLAY_ID> and <MODE_NUMBER>':
+  $ displayplacer "id:<DISPLAY_ID> mode:<MODE_NUMBER>"
