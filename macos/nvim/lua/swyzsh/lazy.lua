@@ -15,4 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("swyzsh.plugins")
+require("lazy").setup({
+  { import = "swyzsh.plugins.themes" },
+  { import = "swyzsh.plugins" },
+})
