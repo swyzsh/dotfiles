@@ -17,5 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "swyzsh.plugins.themes" },
+--  { import = "swyzsh.plugins.lsp" },
   { import = "swyzsh.plugins" },
 })

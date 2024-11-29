@@ -19,8 +19,9 @@ return {
 				max_prefix_length = 13,
 				tab_size = 10,
 				show_tab_indicators = true,
-				indicator = {
-					style = "underline",
+        indicator = {
+          icon = '▎',
+					style = "icon", -- can be 'icon' | 'underline' | 'none'
 				},
 				enforce_regular_tabs = false,
 				view = "multiwindow",
