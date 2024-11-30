@@ -48,9 +48,9 @@ return {
           indent = 3,
         },
       { section = "startup" },
-    },     
     },
-    notifier = { 
+    },
+    notifier = {
       enabled = true,
       timeout = 3000,
     },
