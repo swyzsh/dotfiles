@@ -13,16 +13,17 @@ export BLACK=0xff262626
 #export ITEM_BG_COLOR=0xff353c3f
 #export ACCENT_COLOR=0xffffffff
 
+# -- Neutral White Scheme --
+# export BAR_COLOR=0xbf1e1e2e
+export BAR_COLOR=0x00ffffff
+export ITEM_BG_COLOR=0xff353c3f
+export ACCENT_COLOR=0xfffafaf9
+
 # -- Purple Scheme --
 # export BAR_COLOR=0xff140c42
 # export ITEM_BG_COLOR=0xff2b1c84
 # export ACCENT_COLOR=0xffeb46f9
 
-# -- Catppuccin Blue Scheme --
-export BAR_COLOR=0x00ffffff
-export ITEM_BG_COLOR=0xff45475a
-export ACCENT_COLOR=0xffb4befe
- 
 # -- Red Scheme ---
 # export BAR_COLOR=0xff23090e
 # export ITEM_BG_COLOR=0xff591221
@@ -32,7 +33,7 @@ export ACCENT_COLOR=0xffb4befe
 # export BAR_COLOR=0xff021254
 # export ITEM_BG_COLOR=0xff093aa8
 # export ACCENT_COLOR=0xff15bdf9
-#
+
 # -- Catppuccin Blue Scheme --
 # export BAR_COLOR=0xbf1e1e2e
 # export BAR_COLOR=0x00ffffff

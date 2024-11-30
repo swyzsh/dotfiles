@@ -15,7 +15,7 @@ padding.x = 8
 padding.y = 8
 decorations = "Buttonless"
 opacity = 0.75
-blur = true
+blur = true 
 
 [font]
 size = 14.0
