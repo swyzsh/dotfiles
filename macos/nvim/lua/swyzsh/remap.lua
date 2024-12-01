@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>bl", ":bnext<CR>", { noremap = true, silent = true,
 vim.keymap.set("n", "<leader>bh", ":bprevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" }) -- Go to previous buffer
 -- vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true }) -- Delete buffer (Using alt Snacks.bufdelete)
 vim.keymap.set("n", "<leader>bw", ":bwipeout<CR>", { noremap = true, silent = true, desc = "Wipeout Buffer" }) -- Wipout buffer
-vim.keymap.set("n", "<leader>bs", ":sbnext<CR>", { noremap = true, silent = true, desc = "Split w/Next Buffer" })  -- Split with next buffer
+vim.keymap.set("n", "<leader>bs", ":sbnext<CR>", { noremap = true, silent = true, desc = "Split w/Next Buffer" }) -- Split with next buffer
 vim.keymap.set("n", "<leader>bb", ":buffers<CR>", { noremap = true, silent = true, desc = "List All Buffers" }) -- List all buffers
 
 -- Telescope Fuzzy Finder--
