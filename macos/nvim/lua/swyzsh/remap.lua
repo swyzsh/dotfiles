@@ -36,3 +36,13 @@ vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Find 
 vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find String in CWD" }) -- Find string in current working directory
 vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find String Under Cursor" }) -- Find string under cursor in current working directory
 vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todos" }) -- Find todos
+
+-- hlsearch is built in vim use shift+3 "#" to search for anything under cursor or selected in file --
+-- "n" moves backwards; shift+n moves forwards --
+-- Following are keybinds to close hlsearch --
+vim.keymap.set("n", "j", "j:nohlsearch<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "k", "k:nohlsearch<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "h", "h:nohlsearch<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "l", "l:nohlsearch<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "w", "w:nohlsearch<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "b", "b:nohlsearch<CR>", { noremap = true, silent = true })

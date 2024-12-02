@@ -6,7 +6,7 @@ return {
     local todo_comments = require("todo-comments")
 
     -- Todo Comments start with the comment keyword, keyword, then a colon ":"
-    -- Acceptable commands for Todo Comments: 
+    -- Acceptable commands for Todo Comments:
     --   --PERF: fully optimised
     --   --HACK: hmm, this looks a bit funky
     --   --TODO: What else?

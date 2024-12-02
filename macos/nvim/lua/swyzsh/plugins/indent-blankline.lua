@@ -20,14 +20,14 @@ return {
     end)
 
     return {
-      scope = { 
-        show_start = false, 
-        show_end = false, 
+      scope = {
+        show_start = false,
+        show_end = false,
         highlight = "IndentBlanklineScope",
       },
-      indent = { 
-        char = "│", 
-        tab_char = "│", 
+      indent = {
+        char = "│",
+        tab_char = "│",
         highlight = "IndentBlanklinePassive",
       },
       exclude = {
