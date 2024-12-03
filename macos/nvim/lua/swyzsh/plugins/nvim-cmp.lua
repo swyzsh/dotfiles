@@ -51,7 +51,10 @@ return {
 
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
+        fields = { "abbr", "kind", "menu" },
+        expandable_indicator = true,
         format = lspkind.cmp_format({
+          mode = "symbol_text",
           maxwidth = 50,
           ellipsis_char = "...",
         }),
