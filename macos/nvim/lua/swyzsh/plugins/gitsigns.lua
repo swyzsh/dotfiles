@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   opts = {
     on_attach = function(bufnr)
-      require("remap").gitsigns_keymaps(bufnr)
+      require("swyzsh.remap").gitsigns_keymaps(bufnr)
     end,
   },
 }

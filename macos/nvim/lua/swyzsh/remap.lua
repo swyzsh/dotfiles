@@ -38,6 +38,8 @@ vim.keymap.set("n", "<leader>bh", ":bprevious<CR>", { noremap = true, silent = t
 vim.keymap.set("n", "<leader>bw", ":bwipeout<CR>", { noremap = true, silent = true, desc = "Wipeout Buffer" })
 vim.keymap.set("n", "<leader>bs", ":sbnext<CR>", { noremap = true, silent = true, desc = "Split w/Next Buffer" })
 vim.keymap.set("n", "<leader>bb", ":buffers<CR>", { noremap = true, silent = true, desc = "List All Buffers" })
+vim.keymap.set("n", "<TAB>", ":bnext<CR>", { noremap = true, silent = true, desc = "Cycle Buffers Forwards" })
+vim.keymap.set("n", "<S-TAB>", ":bprevious<CR>", { noremap = true, silent = true, desc = "Cycle Buffers Backwards" })
 
 -- Telescope Fuzzy Finder--
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find Files in CWD" })
@@ -145,6 +147,49 @@ M.lsp_keymaps = function(bufnr)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", unpack(opts) })
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show documentation for what is under cursor", unpack(opts) })
   vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP", unpack(opts) })
+end
+
+-- Snacks --
+M.snacks_keymaps = function()
+  local Snacks = require("snacks")
+
+  vim.keymap.set("n", "<leader>bd", function()
+    Snacks.bufdelete()
+  end, { desc = "Delete Buffer" })
+
+  -- Lazygit
+  vim.keymap.set("n", "<leader>gg", function()
+    Snacks.lazygit()
+  end, { desc = "Lazygit" })
+
+  -- Git Blame
+  vim.keymap.set("n", "<leader>gb", function()
+    Snacks.git.blame_line()
+  end, { desc = "Git Blame Line" })
+
+  -- Git Browse
+  vim.keymap.set("n", "<leader>gB", function()
+    Snacks.gitbrowse()
+  end, { desc = "Git Browse" })
+
+  -- Lazygit File History
+  vim.keymap.set("n", "<leader>gf", function()
+    Snacks.lazygit.log_file()
+  end, { desc = "Lazygit Current File History" })
+
+  -- Lazygit Log (cwd)
+  vim.keymap.set("n", "<leader>gl", function()
+    Snacks.lazygit.log()
+  end, { desc = "Lazygit Log (cwd)" })
+
+  -- Reference Navigation
+  vim.keymap.set({ "n", "t" }, "]]", function()
+    Snacks.words.jump(vim.v.count1)
+  end, { desc = "Next Reference" })
+
+  vim.keymap.set({ "n", "t" }, "[[", function()
+    Snacks.words.jump(-vim.v.count1)
+  end, { desc = "Previous Reference" })
 end
 
 return M
