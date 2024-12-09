@@ -31,6 +31,14 @@ return {
         always_show_bufferline = true,
         diagnostics = false,
         themable = true,
+        -- offsets = {
+        --   {
+        --     filetype = "NvimTree",
+        --     text_align = "left",
+        --     separator = false,
+        --     padding = 0,
+        --   },
+        -- },
       },
     })
 

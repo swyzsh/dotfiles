@@ -45,5 +45,15 @@ return {
         ignore = false,
       },
     })
+    --
+    -- vim.api.nvim_create_autocmd("BufEnter", {
+    --   pattern = "*",
+    --   callback = function()
+    --     local tree_wins = require("nvim-tree.view").get_winnr()
+    --     if tree_wins then
+    --       vim.cmd("set winbar=")
+    --     end
+    --   end,
+    -- })
   end,
 }
