@@ -2,12 +2,14 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 local custom_catppuccin = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-custom_catppuccin.background = "#15151c"
+custom_catppuccin.background = "#1a1b26"
 config.color_schemes = {
 	["DARKERppuccin"] = custom_catppuccin,
 }
 --config.color_scheme = "DARKERppuccin"
-config.color_scheme = "Catppuccin Mocha"
+-- config.color_scheme = "Catppuccin Mocha"
+-- config.color_scheme = "tokyonight_moon"
+config.color_scheme = "tokyonight_night"
 
 --config.font = wezterm.font("Iosevka Nerd Font Mono")
 --config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
@@ -31,18 +33,18 @@ config.window_padding = {
 	bottom = "0.5cell",
 }
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 60
+-- config.window_background_opacity = 0.90
+-- config.macos_window_background_blur = 60
 
 config.window_frame = {
 	border_left_width = "0.1cell",
 	border_right_width = "0.1cell",
 	border_bottom_height = "0.05cell",
 	border_top_height = "0.05cell",
-	border_left_color = "#6c7086",
-	border_right_color = "#6c7086",
-	border_bottom_color = "#6c7086",
-	border_top_color = "#6c7086",
+	border_left_color = "#525252",
+	border_right_color = "#525252",
+	border_bottom_color = "#525252",
+	border_top_color = "#525252",
 }
 
 config.window_close_confirmation = "NeverPrompt"

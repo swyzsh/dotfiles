@@ -27,18 +27,17 @@ return {
         view = "multiwindow",
         show_buffer_close_icons = true,
         separator_style = "thin",
-        -- separator_style = "slant",
         always_show_bufferline = true,
         diagnostics = false,
         themable = true,
-        -- offsets = {
-        --   {
-        --     filetype = "NvimTree",
-        --     text_align = "left",
-        --     separator = false,
-        --     padding = 0,
-        --   },
-        -- },
+        offsets = {
+          {
+            filetype = "NvimTree",
+            text = "Nvim Tree",
+            separator = true,
+            text_align = "left",
+          },
+        },
       },
     })
 
