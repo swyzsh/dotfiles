@@ -58,6 +58,8 @@ return {
           on_attach = function(client, bufnr)
             vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>el", "<cmd>EslintFixAll<CR>", { silent = true })
           end,
+          root_dir = lspconfig.util.root_pattern(".eslintrc*", "eslint.config.*", "package.json"),
+          cmd = { "eslint", "--config", "./eslint.config.mjs", "--stdin", "--stdin-filename", "%filepath" },
           settings = {
             format = { enable = true },
           },

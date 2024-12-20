@@ -41,8 +41,99 @@ vim.keymap.set("n", "<leader>bh", ":bprevious<CR>", { noremap = true, silent = t
 vim.keymap.set("n", "<leader>bw", ":bwipeout<CR>", { noremap = true, silent = true, desc = "Wipeout Buffer" })
 vim.keymap.set("n", "<leader>bs", ":sbnext<CR>", { noremap = true, silent = true, desc = "Split w/Next Buffer" })
 vim.keymap.set("n", "<leader>bb", ":buffers<CR>", { noremap = true, silent = true, desc = "List All Buffers" })
-vim.keymap.set("n", "<TAB>", ":bnext<CR>", { noremap = true, silent = true, desc = "Cycle Buffers Forwards" })
-vim.keymap.set("n", "<S-TAB>", ":bprevious<CR>", { noremap = true, silent = true, desc = "Cycle Buffers Backwards" })
+vim.keymap.set("n", "<TAB>", ":bnext<CR>", { noremap = true, silent = true, desc = " Cycle Buffers Forwards" })
+vim.keymap.set(
+  "n",
+  "<S-TAB>",
+  ":bprevious<CR>",
+  { noremap = true, silent = true, desc = " Cycle Buffers Backwards" }
+)
+
+-- Terminal
+
+local terminal_buf = nil
+
+-- Terminal: Toggle terminal
+vim.keymap.set("n", "<leader>xx", function()
+  -- Check if the terminal buffer exists and is valid
+  if terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf) then
+    -- Check if the terminal is currently open in a window
+    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      if vim.api.nvim_win_get_buf(win) == terminal_buf then
+        vim.api.nvim_win_close(win, true) -- Close terminal window
+        vim.api.nvim_buf_delete(terminal_buf, { force = true }) -- Delete terminal buffer
+        terminal_buf = nil -- Reset terminal buffer variable
+        vim.notify("Terminal exited!")
+        return
+      end
+    end
+    -- If not open, reopen it in a split
+    vim.cmd("20split")
+    vim.api.nvim_set_current_buf(terminal_buf)
+    vim.notify("Terminal reopened!")
+  else
+    -- Create a new terminal buffer if it doesn't exist
+    vim.cmd("20split | terminal")
+    terminal_buf = vim.api.nvim_get_current_buf()
+
+    -- Set the terminal buffer as a scratch buffer (not listed in bufferline)
+    vim.bo[terminal_buf].bufhidden = "hide"
+    vim.bo[terminal_buf].buftype = "terminal"
+    vim.notify("Terminal opened!")
+  end
+end, { noremap = true, silent = true, desc = "Toggle terminal" })
+
+-- Terminal: Hide terminal
+vim.keymap.set("n", "<leader>xh", function()
+  if terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf) then
+    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      if vim.api.nvim_win_get_buf(win) == terminal_buf then
+        vim.api.nvim_win_hide(win) -- Hide terminal window
+        vim.notify("Terminal hidden!")
+        return
+      end
+    end
+  end
+end, { noremap = true, silent = true, desc = "Hide terminal" })
+
+-- Terminal: Exit terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode with ESC" })
+
+-- Terminal: Navigation
+vim.keymap.set("t", "<C-w>h", "<C-\\><C-n><C-w>h", { noremap = true, silent = true, desc = "Move to left window" })
+vim.keymap.set("t", "<C-w>j", "<C-\\><C-n><C-w>j", { noremap = true, silent = true, desc = "Move to below window" })
+vim.keymap.set("t", "<C-w>k", "<C-\\><C-n><C-w>k", { noremap = true, silent = true, desc = "Move to above window" })
+vim.keymap.set("t", "<C-w>l", "<C-\\><C-n><C-w>l", { noremap = true, silent = true, desc = "Move to right window" })
+
+-- Terminal: Close terminal in terminal mode
+vim.keymap.set("t", "<leader>xx", function()
+  if terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf) then
+    vim.api.nvim_buf_delete(terminal_buf, { force = true }) -- Delete terminal buffer
+    terminal_buf = nil -- Reset terminal buffer variable
+    vim.notify("Terminal closed")
+  end
+end, { noremap = true, silent = true, desc = "Close terminal" })
+
+-- Terminal: Hide terminal in terminal mode
+vim.keymap.set("t", "<leader>xh", function()
+  local win = vim.api.nvim_get_current_win()
+  if terminal_buf and vim.api.nvim_win_get_buf(win) == terminal_buf then
+    vim.api.nvim_win_hide(win) -- Hide terminal window
+    vim.notify("Terminal hidden")
+  end
+end, { noremap = true, silent = true, desc = "Hide terminal" })
+
+-- Trouble
+vim.keymap.set("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Trouble: Workspace diagnostics" })
+vim.keymap.set(
+  "n",
+  "<leader>xd",
+  "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
+  { desc = "Trouble: Document diagnostics" }
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", { desc = "Trouble: Quickfix list" })
+vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", { desc = "Trouble: Location list" })
+vim.keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<CR>", { desc = "Trouble: Todos in Trouble" })
 
 -- Telescope Fuzzy Finder--
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find Files in CWD" })
@@ -74,6 +165,11 @@ M.formatting_keymaps = function()
     })
   end, { desc = "Format file or range (in visual mode)" })
 end
+
+-- Linting
+vim.keymap.set("n", "<leader>ll", function()
+  require("lint").try_lint()
+end, { desc = "Trigger linting for current file" })
 
 -- Git Signs --
 M.gitsigns_keymaps = function(bufnr)
@@ -141,16 +237,128 @@ M.lsp_keymaps = function(bufnr)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Smart rename", unpack(opts) })
   vim.keymap.set(
     "n",
-    "<leader>D",
+    "<leader>db",
     "<cmd>Telescope diagnostics bufnr=0<CR>",
     { desc = "Show buffer diagnostics", unpack(opts) }
   )
-  vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostics", unpack(opts) })
+  vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line diagnostics", unpack(opts) })
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", unpack(opts) })
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", unpack(opts) })
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show documentation for what is under cursor", unpack(opts) })
-  vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP", unpack(opts) })
+  vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { desc = "Restart All LSPs", unpack(opts) })
 end
+
+-- Toggle Individual LSPs
+local lsp_clients = {
+  -- First set
+  [1] = {
+    "bashls",
+    "cssls",
+    "docker_compose_language_service",
+    "dockerls",
+    "emmet_ls",
+    "eslint",
+    "graphql",
+    "html",
+    "lua_ls",
+  },
+  -- Second set
+  [2] = {
+    "marksman",
+    "prismals",
+    "pyright",
+    "rust_analyzer",
+    "solidity_ls_nomicfoundation",
+    "tailwindcss",
+    "ts_ls",
+  },
+}
+
+local function toggle_lsp(client_name)
+  local clients = vim.lsp.get_clients()
+  for _, client in ipairs(clients) do
+    if client.name == client_name then
+      client.stop()
+      vim.notify("LSP [" .. client_name .. "] stopped.")
+      return
+    end
+  end
+
+  -- Check if configuration exists
+  local config = require("lspconfig")[client_name]
+  if not config then
+    vim.notify("LSP [" .. client_name .. "] configuration not found!", vim.log.levels.ERROR)
+    return
+  end
+
+  -- Validate LSP-specific conditions
+  local root_dir = vim.fn.getcwd() -- Example root directory check
+  if client_name == "rust_analyzer" and vim.fn.filereadable(root_dir .. "/Cargo.toml") == 0 then
+    vim.notify("LSP [rust_analyzer] requires Cargo.toml in the project root.", vim.log.levels.WARN)
+    return
+  elseif client_name == "eslint" and vim.fn.filereadable(root_dir .. "/.eslintrc*") == 0 then
+    vim.notify("LSP [eslint] requires an ESLint config file in the project root.", vim.log.levels.WARN)
+    return
+  end
+
+  -- Start the LSP
+  local client_id = vim.lsp.start_client(vim.lsp.get_config(client_name))
+  if client_id then
+    vim.notify("LSP [" .. client_name .. "] started.")
+  else
+    vim.notify("Failed to start LSP [" .. client_name .. "]", vim.log.levels.ERROR)
+  end
+end
+
+local function toggle_all_lsps()
+  local clients = vim.lsp.get_clients()
+  if #clients > 0 then
+    for _, client in ipairs(clients) do
+      client.stop()
+    end
+    vim.notify("All LSPs stopped.")
+  else
+    -- Start all configured LSP servers
+    for _, client_list in ipairs(lsp_clients) do
+      for _, client_name in ipairs(client_list) do
+        local config = require("lspconfig")[client_name]
+        if not config then
+          vim.notify("LSP [" .. client_name .. "] configuration not found!", vim.log.levels.ERROR)
+        else
+          -- Perform validation for specific LSPs
+          local root_dir = vim.fn.getcwd()
+          if client_name == "rust_analyzer" and vim.fn.filereadable(root_dir .. "/Cargo.toml") == 0 then
+            vim.notify("LSP [rust_analyzer] requires Cargo.toml in the project root.", vim.log.levels.WARN)
+          elseif client_name == "eslint" and vim.fn.filereadable(root_dir .. "/.eslintrc*") == 0 then
+            vim.notify("LSP [eslint] requires an ESLint config file in the project root.", vim.log.levels.WARN)
+          else
+            -- Start the client
+            local client_id = vim.lsp.start_client(config)
+            if client_id then
+              vim.notify("LSP [" .. client_name .. "] started.")
+            else
+              vim.notify("Failed to start LSP [" .. client_name .. "]", vim.log.levels.ERROR)
+            end
+          end
+        end
+      end
+    end
+    vim.cmd("e") -- Reload buffers to attach clients
+    vim.notify("All LSPs started.")
+  end
+end
+
+-- Add key mappings for toggling LSPs
+for set_id, clients in pairs(lsp_clients) do
+  for index, client_name in ipairs(clients) do
+    vim.keymap.set("n", "<leader>l" .. set_id .. index, function()
+      toggle_lsp(client_name)
+    end, { desc = "Toggle LSP: " .. client_name })
+  end
+end
+
+-- Toggle all LSPs
+vim.keymap.set("n", "<leader>la", toggle_all_lsps, { desc = "Toggle All LSPs" })
 
 -- Snacks --
 M.snacks_keymaps = function()
