@@ -7,8 +7,15 @@ return {
     config = function()
       require("catppuccin").setup({
         flavour = "mocha", -- Available variants "latte", "frappe", "machiato", "mocha"
+        show_end_of_buffer = true,
         transparent_background = true,
         term_colors = true,
+        custom_highlights = function(colors)
+          return {
+            -- Comment = { fg = colors.flamingo },
+            CursorLineNr = { fg = colors.peach },
+          }
+        end,
         integrations = {
           aerial = true,
           alpha = true,

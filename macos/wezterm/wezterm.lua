@@ -9,31 +9,40 @@ config.audible_bell = "Disabled"
 -- 	["DARKERppuccin"] = custom_catppuccin,
 -- }
 --config.color_scheme = "DARKERppuccin"
--- config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "tokyonight_moon"
-config.color_scheme = "tokyonight_night"
+-- config.color_scheme = "tokyonight_night"
 
 -- config.font = wezterm.font("Iosevka Nerd Font Mono")
 -- config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 -- config.font = wezterm.font("0xProto Nerd Font")
 -- config.font = wezterm.font("BigBlueTermPlus Nerd Font")
 config.font = wezterm.font("DepartureMono Nerd Font")
-
+config.warn_about_missing_glyphs = false
+-- config.font_size = 13
 config.font_size = 15
 
 config.enable_tab_bar = false
-config.initial_cols = 144
-config.initial_rows = 44
+config.initial_cols = 96
+config.initial_rows = 32
 
 config.window_padding = {
-	left = "20px",
-	right = "20px",
-	top = "20px",
-	bottom = "20px",
+	left = "10px",
+	right = "10px",
+	top = "10px",
+	bottom = "10px",
 }
+-- config.window_padding = {
+-- 	left = "20px",
+-- 	right = "20px",
+-- 	top = "20px",
+-- 	bottom = "20px",
+-- }
+
+-- config.window_decorations = "NONE"
 config.window_decorations = "RESIZE"
--- config.window_background_opacity = 0.75
--- config.macos_window_background_blur = 60
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 60
 
 config.window_frame = {
 	border_left_width = "0.1cell",
@@ -64,6 +73,21 @@ config.keys = {
 	{
 		key = "=",
 		mods = "CTRL",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "0",
+		mods = "SUPER",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "-",
+		mods = "SUPER",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "=",
+		mods = "SUPER",
 		action = wezterm.action.DisableDefaultAssignment,
 	},
 }

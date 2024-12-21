@@ -2,8 +2,9 @@ print("hello from swyzsh!")
 require("swyzsh.remap")
 require("swyzsh.lazy")
 
--- vim.cmd.colorscheme("catppuccin")
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("catppuccin")
+
+-- vim.cmd.colorscheme("tokyonight")
 
 vim.opt.number = true -- Enable absolute line numbers by default
 -- Define an autocmd group for toggling relative line numbers

@@ -15,9 +15,9 @@ return {
 
     local hooks = require("ibl.hooks")
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-      -- vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#89b4fa" })
       -- vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#ff9e64" })
-      vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#bb9af7" })
+      -- vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#bb9af7" })
+      vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#89b4fa" })
       vim.api.nvim_set_hl(0, "IndentBlanklinePassive", { fg = "#585b70" })
     end)
 
