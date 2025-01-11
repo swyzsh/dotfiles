@@ -20,8 +20,10 @@ return {
     })
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = "rounded",
       silent = true,
+      focusable = true,
+      border = "rounded",
+      max_width = 96,
     })
 
     -- used to enable autocompletion (assign to every lsp server config)

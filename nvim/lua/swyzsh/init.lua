@@ -35,6 +35,18 @@ vim.opt.shiftwidth = 2 -- Number of spaces to use for each indentation level
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.autoindent = true -- Copy indent from current line when starting a new one
 
+local rust_group = vim.api.nvim_create_augroup("RustSpecific", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = rust_group,
+  pattern = "rust",
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+    vim.opt.autoindent = true
+  end,
+})
+
 vim.opt.ignorecase = true -- Ignore case when searching
 vim.opt.smartcase = true -- Use case-sensitive if you include mixed case in your search
 
