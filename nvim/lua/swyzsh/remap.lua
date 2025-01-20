@@ -60,9 +60,9 @@ vim.keymap.set("n", "<leader>xx", function()
     -- Check if the terminal is currently open in a window
     for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
       if vim.api.nvim_win_get_buf(win) == terminal_buf then
-        vim.api.nvim_win_close(win, true) -- Close terminal window
+        vim.api.nvim_win_close(win, true)                       -- Close terminal window
         vim.api.nvim_buf_delete(terminal_buf, { force = true }) -- Delete terminal buffer
-        terminal_buf = nil -- Reset terminal buffer variable
+        terminal_buf = nil                                      -- Reset terminal buffer variable
         vim.notify("Terminal exited!")
         return
       end
@@ -109,7 +109,7 @@ vim.keymap.set("t", "<C-w>l", "<C-\\><C-n><C-w>l", { noremap = true, silent = tr
 vim.keymap.set("t", "<leader>xx", function()
   if terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf) then
     vim.api.nvim_buf_delete(terminal_buf, { force = true }) -- Delete terminal buffer
-    terminal_buf = nil -- Reset terminal buffer variable
+    terminal_buf = nil                                      -- Reset terminal buffer variable
     vim.notify("Terminal closed")
   end
 end, { noremap = true, silent = true, desc = "Close terminal" })

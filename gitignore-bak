@@ -12,4 +12,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# JS/TS
 node_modules
+
+# Rust
+/target
