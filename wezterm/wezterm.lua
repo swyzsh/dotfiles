@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 local config = wezterm.config_builder()
 
 config.audible_bell = "Disabled"
@@ -8,8 +9,8 @@ custom_catppuccin.background = "#1a1b26"
 config.color_schemes = {
 	["DARKERppuccin"] = custom_catppuccin,
 }
-config.color_scheme = "DARKERppuccin"
--- config.color_scheme = "Catppuccin Mocha"
+-- config.color_scheme = "DARKERppuccin"
+config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "tokyonight_moon"
 -- config.color_scheme = "tokyonight_night"
 
@@ -19,13 +20,59 @@ config.font = wezterm.font("Iosevka Nerd Font Mono")
 -- config.font = wezterm.font("BigBlueTermPlus Nerd Font")
 -- config.font = wezterm.font("DepartureMono Nerd Font")
 config.warn_about_missing_glyphs = false
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- config.font_size = 14
 config.font_size = 16
 
-config.enable_tab_bar = false
-config.initial_cols = 140
-config.initial_rows = 70
+-- Tabs --
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
+config.tab_bar_at_bottom = true
+config.show_new_tab_button_in_tab_bar = false
+config.show_tab_index_in_tab_bar = true
+config.use_fancy_tab_bar = false
+bar.apply_to_config(config, {
+	position = "bottom",
+	max_width = 32,
+	padding = {
+		left = 1,
+		right = 1,
+	},
+	modules = {
+		tabs = {
+			active_tab_fg = 4,
+			inactive_tab_fg = 6,
+		},
+		workspace = {
+			enabled = true,
+		},
+		leader = {
+			enabled = true,
+		},
+		pane = {
+			enabled = true,
+		},
+		username = {
+			enabled = false,
+		},
+		hostname = {
+			enabled = false,
+		},
+		clock = {
+			enabled = true,
+		},
+		cwd = {
+			enabled = true,
+		},
+		spotify = {
+			enabled = false,
+		},
+	},
+})
 
+-- Window --
+config.initial_cols = 160
+config.initial_rows = 40
 -- config.window_padding = {
 -- 	left = "10px",
 -- 	right = "10px",
@@ -36,14 +83,12 @@ config.window_padding = {
 	left = "20px",
 	right = "20px",
 	top = "20px",
-	bottom = "20px",
+	bottom = "0px",
 }
-
 -- config.window_decorations = "NONE"
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.90
 config.macos_window_background_blur = 60
-
 config.window_frame = {
 	border_left_width = "0.1cell",
 	border_right_width = "0.1cell",

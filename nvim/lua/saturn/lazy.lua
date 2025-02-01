@@ -16,7 +16,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "swyzsh.plugins.themes" },
-  { import = "swyzsh.plugins.lsp" },
-  { import = "swyzsh.plugins" },
+  { import = "saturn.plugins.themes" },
+  { import = "saturn.plugins.lsp" },
+  { import = "saturn.plugins" },
 })
