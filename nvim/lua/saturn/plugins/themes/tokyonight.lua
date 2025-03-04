@@ -1,14 +1,14 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
-    style = "night",
-    -- style = "moon",
-    transparent = true,
-    styles = {
-      sidebars = "transparent",
-      floats = "transparent",
-    },
-  },
+	"folke/tokyonight.nvim",
+	lazy = false,
+	priority = 1000,
+	opts = {
+		style = "night", -- storm | moon | night
+		transparent = true,
+		styles = {
+			-- Background styles. Can be "dark", "transparent" or "normal"
+			sidebars = "transparent",
+			floats = "transparent",
+		},
+	},
 }

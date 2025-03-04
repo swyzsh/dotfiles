@@ -4,6 +4,10 @@ require("saturn.lazy")
 
 vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("tokyonight")
+-- vim.cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
+
+-- vim.cmd.colorscheme("github_dark")
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
 vim.opt.number = true -- Enable absolute line numbers by default
 -- Define an autocmd group for toggling relative line numbers
@@ -27,6 +31,21 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 			vim.opt.relativenumber = false
 		end
 	end,
+})
+
+vim.diagnostic.config({
+	virtual_text = true, -- Enable/Disable Inline virtual text (annoying diagnostic besides code)
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = "rounded", -- Options: "single", "double", "rounded", "shadow"
+		focusable = true,
+		source = true, -- Show source of diagnostic
+		header = "", -- Optional: Add a header
+		-- prefix = "", -- Optional: Remove default prefix
+	},
 })
 
 vim.opt.tabstop = 2 -- Number of sapces that a tab represents

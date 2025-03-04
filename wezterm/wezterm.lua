@@ -13,16 +13,21 @@ config.color_schemes = {
 config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "tokyonight_moon"
 -- config.color_scheme = "tokyonight_night"
+-- config.color_scheme = "Material (base16)"
+-- config.color_scheme = "nightfox"
 
-config.font = wezterm.font("Iosevka Nerd Font Mono")
--- config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
+-- config.font = wezterm.font("Iosevka Nerd Font")
+config.font = wezterm.font("JetBrainsMono Nerd Font")
 -- config.font = wezterm.font("0xProto Nerd Font")
 -- config.font = wezterm.font("BigBlueTermPlus Nerd Font")
 -- config.font = wezterm.font("DepartureMono Nerd Font")
+-- config.font = wezterm.font("ZedMono Nerd Font")
+-- config.font = wezterm.font("MartianMono Nerd Font")
+
 config.warn_about_missing_glyphs = false
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
--- config.font_size = 14
-config.font_size = 16
+-- config.font_size = 12
+config.font_size = 15
 
 -- Tabs --
 config.enable_tab_bar = true
@@ -87,8 +92,12 @@ config.window_padding = {
 }
 -- config.window_decorations = "NONE"
 config.window_decorations = "RESIZE"
+
 config.window_background_opacity = 0.90
 config.macos_window_background_blur = 60
+-- config.window_background_opacity = 1.0
+-- config.macos_window_background_blur = 0
+
 config.window_frame = {
 	border_left_width = "0.1cell",
 	border_right_width = "0.1cell",
