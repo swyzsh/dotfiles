@@ -2,13 +2,15 @@ local wezterm = require("wezterm")
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 local config = wezterm.config_builder()
 
+-- System --
 config.audible_bell = "Disabled"
 
-local custom_catppuccin = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-custom_catppuccin.background = "#1a1b26"
-config.color_schemes = {
-	["DARKERppuccin"] = custom_catppuccin,
-}
+-- Theming --
+-- local custom_catppuccin = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+-- custom_catppuccin.background = "#1a1b26"
+-- config.color_schemes = {
+-- 	["DARKERppuccin"] = custom_catppuccin,
+-- }
 -- config.color_scheme = "DARKERppuccin"
 config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "tokyonight_moon"
@@ -16,6 +18,7 @@ config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "Material (base16)"
 -- config.color_scheme = "nightfox"
 
+-- Fonts --
 -- config.font = wezterm.font("Iosevka Nerd Font")
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 -- config.font = wezterm.font("0xProto Nerd Font")
@@ -23,11 +26,9 @@ config.font = wezterm.font("JetBrainsMono Nerd Font")
 -- config.font = wezterm.font("DepartureMono Nerd Font")
 -- config.font = wezterm.font("ZedMono Nerd Font")
 -- config.font = wezterm.font("MartianMono Nerd Font")
-
+config.font_size = 13 -- 12, 13, 15
 config.warn_about_missing_glyphs = false
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
--- config.font_size = 12
-config.font_size = 15
 
 -- Tabs --
 config.enable_tab_bar = true
@@ -78,40 +79,15 @@ bar.apply_to_config(config, {
 -- Window --
 config.initial_cols = 160
 config.initial_rows = 40
--- config.window_padding = {
--- 	left = "10px",
--- 	right = "10px",
--- 	top = "10px",
--- 	bottom = "10px",
--- }
 config.window_padding = {
 	left = "20px",
 	right = "20px",
 	top = "20px",
 	bottom = "0px",
 }
--- config.window_decorations = "NONE"
-config.window_decorations = "RESIZE"
-
-config.window_background_opacity = 0.90
-config.macos_window_background_blur = 60
--- config.window_background_opacity = 1.0
--- config.macos_window_background_blur = 0
-
-config.window_frame = {
-	border_left_width = "0.1cell",
-	border_right_width = "0.1cell",
-	border_bottom_height = "0.05cell",
-	border_top_height = "0.05cell",
-	border_left_color = "#525252",
-	border_right_color = "#525252",
-	border_bottom_color = "#525252",
-	border_top_color = "#525252",
-}
-
-config.window_close_confirmation = "NeverPrompt"
---config.window_close_confirmation = 'AlwaysPrompt'
-
+config.window_decorations = "NONE" -- "NONE", "TITLE", "RESIZE", "TITLE | RESIZE"
+config.window_background_opacity = 0.80
+config.window_close_confirmation = "NeverPrompt" -- "NeverPrompt", "AlwaysPrompt"
 config.keys = {
 	-- Ignore <Ctrl- > default binds in Wezterm
 	{
@@ -145,5 +121,18 @@ config.keys = {
 		action = wezterm.action.DisableDefaultAssignment,
 	},
 }
+
+-- MacOS Specific Configs --
+-- config.macos_window_background_blur = 60
+-- config.window_frame = {
+-- 	border_left_width = "0.1cell",
+-- 	border_right_width = "0.1cell",
+-- 	border_bottom_height = "0.05cell",
+-- 	border_top_height = "0.05cell",
+-- 	border_left_color = "#525252",
+-- 	border_right_color = "#525252",
+-- 	border_bottom_color = "#525252",
+-- 	border_top_color = "#525252",
+-- }
 
 return config
