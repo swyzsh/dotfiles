@@ -12,11 +12,13 @@ config.audible_bell = "Disabled"
 -- 	["DARKERppuccin"] = custom_catppuccin,
 -- }
 -- config.color_scheme = "DARKERppuccin"
-config.color_scheme = "Catppuccin Mocha"
+-- config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "tokyonight_moon"
--- config.color_scheme = "tokyonight_night"
+config.color_scheme = "tokyonight_night"
 -- config.color_scheme = "Material (base16)"
 -- config.color_scheme = "nightfox"
+-- config.color_scheme = "GruvboxDark"
+-- config.color_scheme = "GitHub Dark"
 
 -- Fonts --
 -- config.font = wezterm.font("Iosevka Nerd Font")
@@ -26,7 +28,7 @@ config.font = wezterm.font("JetBrainsMono Nerd Font")
 -- config.font = wezterm.font("DepartureMono Nerd Font")
 -- config.font = wezterm.font("ZedMono Nerd Font")
 -- config.font = wezterm.font("MartianMono Nerd Font")
-config.font_size = 13 -- 12, 13, 15
+config.font_size = 15 -- 12, 13, 15
 config.warn_about_missing_glyphs = false
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
@@ -85,8 +87,8 @@ config.window_padding = {
 	top = "20px",
 	bottom = "0px",
 }
-config.window_decorations = "NONE" -- "NONE", "TITLE", "RESIZE", "TITLE | RESIZE"
-config.window_background_opacity = 0.80
+config.window_decorations = "RESIZE" -- "NONE", "TITLE", "RESIZE", "TITLE | RESIZE"
+config.window_background_opacity = 0.90 -- 0.80, 0.90
 config.window_close_confirmation = "NeverPrompt" -- "NeverPrompt", "AlwaysPrompt"
 config.keys = {
 	-- Ignore <Ctrl- > default binds in Wezterm
@@ -123,16 +125,16 @@ config.keys = {
 }
 
 -- MacOS Specific Configs --
--- config.macos_window_background_blur = 60
--- config.window_frame = {
--- 	border_left_width = "0.1cell",
--- 	border_right_width = "0.1cell",
--- 	border_bottom_height = "0.05cell",
--- 	border_top_height = "0.05cell",
--- 	border_left_color = "#525252",
--- 	border_right_color = "#525252",
--- 	border_bottom_color = "#525252",
--- 	border_top_color = "#525252",
--- }
+config.macos_window_background_blur = 60
+config.window_frame = {
+	border_left_width = "0.1cell",
+	border_right_width = "0.1cell",
+	border_bottom_height = "0.05cell",
+	border_top_height = "0.05cell",
+	border_left_color = "#525252",
+	border_right_color = "#525252",
+	border_bottom_color = "#525252",
+	border_top_color = "#525252",
+}
 
 return config

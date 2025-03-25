@@ -2,11 +2,12 @@ print("Welcome to SaturnVim!")
 require("saturn.remap")
 require("saturn.lazy")
 
-vim.cmd.colorscheme("catppuccin")
--- vim.cmd.colorscheme("tokyonight")
+-- vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("tokyonight")
 -- vim.cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
-
+-- vim.cmd.colorscheme("gruvbox")
 -- vim.cmd.colorscheme("github_dark")
+
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
 vim.opt.number = true -- Enable absolute line numbers by default

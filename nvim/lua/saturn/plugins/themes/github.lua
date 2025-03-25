@@ -7,10 +7,8 @@ return {
 		require("github-theme").setup({
 			options = {
 				hide_end_of_buffer = false,
-				transparent = false,
+				transparent = true,
 			},
 		})
-
-		vim.cmd("colorscheme github_dark")
 	end,
 }
