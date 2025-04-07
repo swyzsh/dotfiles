@@ -3,7 +3,7 @@ return {
 	lazy = false,
 	priority = 1000,
 	opts = {
-		style = "night", -- storm | moon | night
+		style = "moon", -- storm | moon | night
 		transparent = true,
 		styles = {
 			-- Background styles. Can be "dark", "transparent" or "normal"

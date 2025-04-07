@@ -50,7 +50,6 @@ vim.keymap.set(
 )
 
 -- Terminal
-
 local terminal_buf = nil
 
 -- Terminal: Toggle terminal
