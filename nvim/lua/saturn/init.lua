@@ -3,8 +3,8 @@ require("saturn.remap")
 require("saturn.lazy")
 
 -- vim.cmd.colorscheme("catppuccin")
-vim.cmd.colorscheme("tokyonight")
--- vim.cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
+-- vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
 -- vim.cmd.colorscheme("gruvbox")
 -- vim.cmd.colorscheme("github_dark")
 
@@ -41,13 +41,16 @@ vim.diagnostic.config({
 	update_in_insert = false,
 	severity_sort = true,
 	float = {
-		border = "rounded", -- Options: "single", "double", "rounded", "shadow"
+		-- border = "rounded", -- Options: "single", "double", "rounded", "shadow"
 		focusable = true,
 		source = true, -- Show source of diagnostic
 		header = "", -- Optional: Add a header
 		-- prefix = "", -- Optional: Remove default prefix
 	},
 })
+
+-- Global border for every floating window
+vim.o.winborder = "rounded" -- Options: "single", "double", "rounded", "shadow"
 
 vim.opt.tabstop = 2 -- Number of sapces that a tab represents
 vim.opt.shiftwidth = 2 -- Number of spaces to use for each indentation level

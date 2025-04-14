@@ -14,9 +14,9 @@ config.audible_bell = "Disabled"
 -- config.color_scheme = "DARKERppuccin"
 -- config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "tokyonight_moon"
-config.color_scheme = "tokyonight_night"
+-- config.color_scheme = "tokyonight_night"
 -- config.color_scheme = "Material (base16)"
--- config.color_scheme = "nightfox"
+config.color_scheme = "nightfox"
 -- config.color_scheme = "GruvboxDark"
 -- config.color_scheme = "GitHub Dark"
 
@@ -88,7 +88,7 @@ config.window_padding = {
 	bottom = "0px",
 }
 config.window_decorations = "RESIZE" -- "NONE", "TITLE", "RESIZE", "TITLE | RESIZE"
-config.window_background_opacity = 0.90 -- 0.80, 0.90
+config.window_background_opacity = 1.00 -- 0.80, 0.90, 1.00
 config.window_close_confirmation = "NeverPrompt" -- "NeverPrompt", "AlwaysPrompt"
 config.keys = {
 	-- Ignore <Ctrl- > default binds in Wezterm
@@ -125,7 +125,7 @@ config.keys = {
 }
 
 -- MacOS Specific Configs --
-config.macos_window_background_blur = 60
+-- config.macos_window_background_blur = 60
 config.window_frame = {
 	border_left_width = "0.1cell",
 	border_right_width = "0.1cell",
