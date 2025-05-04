@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)   -- Go back from anywhere to native neovim explorer
 
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
+vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- Window Management --
@@ -208,7 +209,9 @@ M.gitsigns_keymaps = function(bufnr)
 	vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { buffer = bufnr, desc = "Select Hunk" })
 end
 
--- LSP --
+-------------
+---- LSP ----
+-------------
 M.lsp_keymaps = function(bufnr)
 	local opts = { buffer = bufnr, silent = true }
 
@@ -241,6 +244,7 @@ M.lsp_keymaps = function(bufnr)
 		{ desc = "Show buffer diagnostics", unpack(opts) }
 	)
 	vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line diagnostics", unpack(opts) })
+	vim.keymap.set("n", "<C-k>", vim.diagnostic.open_float, { desc = "Show line diagnostics", unpack(opts) })
 	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", unpack(opts) })
 	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", unpack(opts) })
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show documentation for what is under cursor", unpack(opts) })

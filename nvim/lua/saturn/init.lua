@@ -2,13 +2,16 @@ print("Welcome to SaturnVim!")
 require("saturn.remap")
 require("saturn.lazy")
 
+----------------------- Colorschemes ---------------------------
 -- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("tokyonight")
-vim.cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
+-- vim.cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
 -- vim.cmd.colorscheme("gruvbox")
 -- vim.cmd.colorscheme("github_dark")
-
+-- vim.cmd.colorscheme("mellow")
+vim.cmd.colorscheme("oldworld")
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
+----------------------------------------------------------------
 
 vim.opt.number = true -- Enable absolute line numbers by default
 -- Define an autocmd group for toggling relative line numbers
@@ -35,7 +38,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 })
 
 vim.diagnostic.config({
-	virtual_text = true, -- Enable/Disable Inline virtual text (annoying diagnostic besides code)
+	virtual_text = false, -- Enable/Disable Inline virtual text (annoying diagnostic besides code)
 	signs = true,
 	underline = true,
 	update_in_insert = false,

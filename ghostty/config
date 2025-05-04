@@ -7,14 +7,19 @@ desktop-notifications = true
 confirm-close-surface = false
 quit-after-last-window-closed = true
 shell-integration-features = no-cursor
+mouse-scroll-multiplier = 0.69
 
 # -- Appearance --
-# theme = oldworld
-theme = nightfox
-background-opacity = 0.80
-background-blur = 20
+theme = oldworld
+# theme = nightfox
+# background-opacity = 0.80 
+# background-blur = 20
+background-opacity = 1.00 
+background-blur = 0
 cursor-style = block
 cursor-style-blink = true
+window-padding-x = 12,12
+window-padding-y = 6,6
 
 # -- Fonts --
 font-family = "CommitMono Nerd Font"
@@ -35,3 +40,14 @@ keybind = ctrl+seven=goto_tab:7
 keybind = ctrl+eight=goto_tab:8
 keybind = ctrl+nine=goto_tab:9
 keybind = ctrl+zero=last_tab
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+keybind = cmd+h=goto_split:left
+keybind = cmd+j=goto_split:down
+keybind = cmd+k=goto_split:up
+keybind = cmd+l=goto_split:right
+keybind = ctrl+cmd+h=resize_split:left,10
+keybind = ctrl+cmd+j=resize_split:down,10
+keybind = ctrl+cmd+k=resize_split:up,10
+keybind = ctrl+cmd+l=resize_split:right,10
+keybind = cmd+backspace=equalize_splits
