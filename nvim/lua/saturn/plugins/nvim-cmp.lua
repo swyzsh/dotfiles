@@ -1,10 +1,10 @@
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter", -- for use in only insert mode
+	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer", -- source for text in buffer
-		"hrsh7th/cmp-path", -- source for file system paths
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
 		{
 			"L3MON4D3/LuaSnip",
 			-- follow latest release.
@@ -13,11 +13,15 @@ return {
 			build = "make install_jsregexp",
 		},
 		"saadparwaiz1/cmp_luasnip",
+		"catgoose/tailwind-tools.nvim",
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 	},
 	opts = function()
+		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 		local cmp = require("cmp")
+		local defaults = require("cmp.config.default")()
+		local auto_select = true
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 
@@ -26,7 +30,7 @@ return {
 
 		cmp.setup({
 			completion = {
-				completeopt = "menu,menuone,preview,noselect",
+				completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
 			},
 			snippet = { -- configure how nvim-cmp interacts with snippet engine
 				expand = function(args)
@@ -36,11 +40,24 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-k>"] = cmp.mapping.select_prev_item(),
-				["<C-j>"] = cmp.mapping.select_next_item(),
+				["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+				["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<CR>"] = cmp.mapping.confirm({ select = auto_select }),
+				["<C-CR>"] = function(fallback)
+					cmp.abort()
+					fallback()
+				end,
+				["<Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.confirm({ select = true })
+					elseif luasnip.expand_or_jumpable() then
+						luasnip.expand_or_jump()
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
@@ -60,6 +77,12 @@ return {
 					ellipsis_char = "...",
 				}),
 			},
+			experimental = {
+				ghost_text = {
+					hl_group = "CmpGhostText", -- this applies the highlight you linked to "Comment"
+				},
+			},
+			sorting = defaults.sorting,
 		})
 	end,
 }

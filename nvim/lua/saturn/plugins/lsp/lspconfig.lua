@@ -11,14 +11,6 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		vim.api.nvim_create_autocmd("LspAttach", {
-			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-			callback = function(event)
-				local remap = require("saturn.remap")
-				remap.lsp_keymaps(event.buf)
-			end,
-		})
-
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -28,6 +20,14 @@ return {
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
+
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+			callback = function(event)
+				local remap = require("saturn.remap")
+				remap.lsp_keymaps(event.buf)
+			end,
+		})
 
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers

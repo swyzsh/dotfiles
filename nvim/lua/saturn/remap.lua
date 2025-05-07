@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
 vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>w", "<cmd>w<cr><esc>", { desc = "Save file" })
+-- vim.keymap.set("n", "<leader>w", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- Window Management --
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split Window Vertically" })
@@ -281,7 +281,7 @@ local function toggle_lsp(client_name)
 	local clients = vim.lsp.get_clients()
 	for _, client in ipairs(clients) do
 		if client.name == client_name then
-			client.stop()
+			client:stop()
 			vim.notify("LSP [" .. client_name .. "] stopped.")
 			return
 		end
@@ -317,7 +317,7 @@ local function toggle_all_lsps()
 	local clients = vim.lsp.get_clients()
 	if #clients > 0 then
 		for _, client in ipairs(clients) do
-			client.stop()
+			client:stop()
 		end
 		vim.notify("All LSPs stopped.")
 	else
