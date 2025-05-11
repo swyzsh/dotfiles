@@ -1,15 +1,9 @@
 return {
-  "williamboman/mason.nvim",
-  dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-  },
-  config = function()
-    local mason = require("mason")
-    local mason_lspconfig = require("mason-lspconfig")
-    local mason_tool_installer = require("mason-tool-installer")
+  "mason-org/mason.nvim",
+  "mason-org/mason-lspconfig.nvim",
 
-    mason.setup({
+  config = function()
+    require("mason").setup({
       ui = {
         icons = {
           package_installed = "✓",
@@ -19,7 +13,7 @@ return {
       },
     })
 
-    mason_lspconfig.setup({
+    require("mason-lspconfig").setup({
       ensure_installed = {
         "bashls",
         "cssls",
@@ -38,16 +32,8 @@ return {
         "tailwindcss",
         "ts_ls",
       },
-    })
-
-    mason_tool_installer.setup({
-      ensure_installed = {
-        "black",
-        "eslint_d",
-        "isort",
-        "prettier",
-        "pylint",
-        "stylua",
+      automatic_enable = {
+        excluse = { "eslint" },
       },
     })
   end,

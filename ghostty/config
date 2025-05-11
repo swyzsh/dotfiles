@@ -10,12 +10,10 @@ shell-integration-features = no-cursor
 mouse-scroll-multiplier = 0.69
 
 # -- Appearance --
-theme = oldworld
-# theme = nightfox
-# background-opacity = 0.80 
-# background-blur = 20
-background-opacity = 1.00 
-background-blur = 0
+# theme = oldworld
+theme = nightfox
+background-opacity = 0.80 
+background-blur = 20
 cursor-style = block
 cursor-style-blink = true
 window-padding-x = 12,12

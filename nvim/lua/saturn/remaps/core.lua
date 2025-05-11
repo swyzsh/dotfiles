@@ -12,16 +12,6 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split Window Horizontally"
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make Splits Equal size" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close Current Split" })
 
--- Nvim-Tree --
-vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
-vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle File Explorer on Current File" })
-vim.keymap.set("n", "<leader>ew", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse File Explorer" })
-vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" })
-vim.keymap.set("n", "<leader>ep", function()
-	require("nvim-tree.api").tree.change_root(vim.loop.cwd())
-	require("nvim-tree.api").tree.reload()
-end, { desc = "Reset File Exporer to Project Root" })
-
 -- Tabs --
 vim.keymap.set("n", "<leader>tl", ":tabnext<CR>", { noremap = true, silent = true, desc = "Next Tab" })
 vim.keymap.set("n", "<leader>th", ":tabprevious<CR>", { noremap = true, silent = true, desc = "Previous Tab" })
@@ -49,6 +39,16 @@ vim.keymap.set(
 	":bprevious<CR>",
 	{ noremap = true, silent = true, desc = " Cycle Buffers Backwards" }
 )
+
+-- Nvim-Tree --
+vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle File Explorer on Current File" })
+vim.keymap.set("n", "<leader>ew", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse File Explorer" })
+vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" })
+vim.keymap.set("n", "<leader>ep", function()
+	require("nvim-tree.api").tree.change_root(vim.loop.cwd())
+	require("nvim-tree.api").tree.reload()
+end, { desc = "Reset File Exporer to Project Root" })
 
 -- Terminal
 local terminal_buf = nil

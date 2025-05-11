@@ -63,7 +63,7 @@ return {
   },
   config = function(_, opts)
     require("snacks").setup(opts)
-    local remap = require("saturn.remap")
+    local remap = require("saturn.remaps.core")
     remap.snacks_keymaps()
   end,
 }
