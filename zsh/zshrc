@@ -70,7 +70,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use zsh-bat)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-bat)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,15 +102,36 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+###############################
+# Setting env paths for tools #
+###############################
+
+# Python and Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)" # Initialize pyenv for login shells
+  eval "$(pyenv init -)"      # Initialize pyenv for interactive shells
+  if command -v pyenv-virtualenv-init > /dev/null; then
+    eval "$(pyenv virtualenv-init -)" # Initialize pyenv-virtualenv if installed
+  fi
 fi
 
-# Run colorscript art on startup
-if [[ $- == *i* ]]; then
-  colorscript -e crunchbang-mini
-fi
+# Java
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+# Run script arts on startup
 # $- == *i* checks if the shell is interactive, doesnt run during shell sessions or script executions
+if [[ $- == *i* ]]; then
+  # colorscript -e crunchbang-mini
+  fastfetch
+fi
+
+# pnpm
+export PNPM_HOME="/Users/suyash/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
