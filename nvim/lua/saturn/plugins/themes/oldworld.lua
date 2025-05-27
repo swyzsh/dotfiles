@@ -15,8 +15,12 @@ return {
           booleans = {},
         },
         highlight_overrides = {
-          CursorLineNr = { fg = "#F5A191" },
-          FloatBorder = { fg = "#636369" }, -- defualt: #313134
+          CursorLineNr = { fg = "#e6b99d" },
+          FloatBorder = { fg = "#62626a" },
+          LineNr = { fg = "#62626a" },
+          StatusLineNC = {
+            fg = "#62626a",
+          },
         },
       })
     end,

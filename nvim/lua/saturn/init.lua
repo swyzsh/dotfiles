@@ -5,11 +5,12 @@ require("saturn.lazy")
 ----------------------- Colorschemes ---------------------------
 -- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("tokyonight")
-vim.cmd.colorscheme("terafox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
+-- vim.cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
 -- vim.cmd.colorscheme("gruvbox")
 -- vim.cmd.colorscheme("github_dark")
 -- vim.cmd.colorscheme("mellow")
--- vim.cmd.colorscheme("oldworld")
+vim.cmd.colorscheme("oldworld")
+-- vim.cmd.colorscheme("vesper")
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- Manual background transparency if needed
 ----------------------------------------------------------------
