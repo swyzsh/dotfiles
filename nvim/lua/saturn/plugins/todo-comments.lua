@@ -24,4 +24,7 @@ return {
 
     todo_comments.setup()
   end,
+  keys = {
+    { "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Todo" },
+  }
 }

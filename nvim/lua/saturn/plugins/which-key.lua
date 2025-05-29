@@ -48,7 +48,7 @@ return {
       { "<leader>dl", icon = " ", group = "Show line diagnostics" },
 
       -- Group: Terminal & Trouble Diagnostics
-      { "<leader>x", group = "Terminal & Trouble Diagnostics" },
+      { "<leader>x", group = "Trouble Diagnostics" },
 
       -- Group: File Explorer
       { "<leader>e", icon = "󰙅", group = "File Explorer" },
@@ -58,23 +58,25 @@ return {
       { "<leader>er", icon = "󰙅 󰑐", group = "Refresh file explorer" },
       { "<leader>ew", icon = "󰙅 󰘕", group = "Collapse file explorer" },
 
-      -- Group: Fuzzy Find
+      -- Group: Fuzzy Finder
+      { "<leader>/", icon = "", group = "Grep" },
+      { "<leader><leader>", icon = "", group = "Smart Find Files" },
       { "<leader>f", group = "Fuzzy Find" },
-      { "<leader>fc", icon = " ", group = "Find string under cursor" },
-      { "<leader>ff", icon = " ", group = "Find files in current directory" },
-      { "<leader>fr", icon = " 󰈔", group = "Find recent files" },
-      { "<leader>fs", icon = " ", group = "Find string in current directory" },
-      { "<leader>ft", icon = " ", group = "Find todos" },
+      { "<leader>fb", icon = " ", group = "Find Buffers" },
+      { "<leader>fc", icon = " ", group = "Find Config Files" },
+      { "<leader>ff", icon = " ", group = "Find Files" },
+      { "<leader>fg", icon = " ", group = "Find Git Files" },
+      { "<leader>fr", icon = " 󰈔", group = "Find Recent Files" },
+      { "<leader>fs", icon = " ", group = "Visual selection or word" },
+      { "<leader>ft", icon = " ", group = "Find Todos" },
 
-      -- Group: Git
+      -- Git
       { "<leader>g", group = "Git" },
+      -- TODO: Complete Git icons
 
       -- Group: Rename
       { "<leader>r", icon = "󰑕", group = "Rename" },
       { "<leader>rn", icon = "󰑕 ", group = "Smart rename" },
-
-      -- Group: Save
-      { "<leader>w", icon = "", group = "Save file" },
 
       -- Group: Session Manager
       { "<leader>q", icon = "", group = "Session Manager" },
@@ -89,6 +91,11 @@ return {
       { "<leader>sh", icon = "󰯌 ", group = "Split window horizontally" },
       { "<leader>sv", icon = "󰯌 ", group = "Split window vertically" },
       { "<leader>sx", icon = "󰯌 ", group = "Close active split" },
+
+      -- Todo Comments
+      { "<leader>[t", icon = " ", group = "Previous todo comment" },
+      { "<leader>]t", icon = " ", group = "Next todo comment" },
+
 
       -- Group: LSP
       { "<leader>l", icon = "", group = "LSPs & Linting" },

@@ -33,7 +33,7 @@ return {
         "ts_ls",
       },
       automatic_enable = {
-        excluse = { "eslint" },
+        exclude = { "eslint" },
       },
     })
   end,

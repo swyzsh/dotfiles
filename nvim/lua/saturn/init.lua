@@ -1,5 +1,7 @@
 print("Welcome to SaturnVim!")
-require("saturn.remaps.core")
+
+require("saturn.remap")
+
 require("saturn.lazy")
 
 ----------------------- Colorschemes ---------------------------
@@ -14,7 +16,6 @@ vim.cmd.colorscheme("oldworld")
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- Manual background transparency if needed
 ----------------------------------------------------------------
-
 
 vim.opt.number = true -- Enable absolute line numbers by default
 -- Define an autocmd group for toggling relative line numbers

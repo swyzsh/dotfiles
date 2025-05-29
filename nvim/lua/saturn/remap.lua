@@ -32,7 +32,7 @@ vim.keymap.set("n", "<leader>tt", ":tabs<CR>", { noremap = true, silent = true, 
 -- Buffers --
 vim.keymap.set("n", "<leader>bl", ":bnext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
 vim.keymap.set("n", "<leader>bh", ":bprevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
--- vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true }) -- Right now Using Snacks.bufdelete
+-- vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true }) -- Handled with plugins.snacks
 vim.keymap.set("n", "<leader>bw", ":bwipeout<CR>", { noremap = true, silent = true, desc = "Wipeout Buffer" })
 vim.keymap.set("n", "<leader>bs", ":sbnext<CR>", { noremap = true, silent = true, desc = "Split w/Next Buffer" })
 vim.keymap.set("n", "<leader>bb", ":buffers<CR>", { noremap = true, silent = true, desc = "List All Buffers" })
@@ -45,106 +45,14 @@ vim.keymap.set(
 )
 
 -- Nvim-Tree --
-vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
-vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle File Explorer on Current File" })
-vim.keymap.set("n", "<leader>ew", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse File Explorer" })
-vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" })
-vim.keymap.set("n", "<leader>ep", function()
-  require("nvim-tree.api").tree.change_root(vim.loop.cwd())
-  require("nvim-tree.api").tree.reload()
-end, { desc = "Reset File Exporer to Project Root" })
-
--- Terminal
-local terminal_buf = nil
-
--- Terminal: Toggle terminal
-vim.keymap.set("n", "<leader>xx", function()
-  -- Check if the terminal buffer exists and is valid
-  if terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf) then
-    -- Check if the terminal is currently open in a window
-    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-      if vim.api.nvim_win_get_buf(win) == terminal_buf then
-        vim.api.nvim_win_close(win, true)                       -- Close terminal window
-        vim.api.nvim_buf_delete(terminal_buf, { force = true }) -- Delete terminal buffer
-        terminal_buf = nil                                      -- Reset terminal buffer variable
-        vim.notify("Terminal exited!")
-        return
-      end
-    end
-    -- If not open, reopen it in a split
-    vim.cmd("20split")
-    vim.api.nvim_set_current_buf(terminal_buf)
-    vim.notify("Terminal reopened!")
-  else
-    -- Create a new terminal buffer if it doesn't exist
-    vim.cmd("20split | terminal")
-    terminal_buf = vim.api.nvim_get_current_buf()
-
-    -- Set the terminal buffer as a scratch buffer (not listed in bufferline)
-    vim.bo[terminal_buf].bufhidden = "hide"
-    vim.bo[terminal_buf].buftype = "terminal"
-    vim.notify("Terminal opened!")
-  end
-end, { noremap = true, silent = true, desc = "Toggle terminal" })
-
--- Terminal: Hide terminal
-vim.keymap.set("n", "<leader>xh", function()
-  if terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf) then
-    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-      if vim.api.nvim_win_get_buf(win) == terminal_buf then
-        vim.api.nvim_win_hide(win) -- Hide terminal window
-        vim.notify("Terminal hidden!")
-        return
-      end
-    end
-  end
-end, { noremap = true, silent = true, desc = "Hide terminal" })
-
--- Terminal: Exit terminal mode
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode with ESC" })
-
--- Terminal: Navigation
-vim.keymap.set("t", "<C-w>h", "<C-\\><C-n><C-w>h", { noremap = true, silent = true, desc = "Move to left window" })
-vim.keymap.set("t", "<C-w>j", "<C-\\><C-n><C-w>j", { noremap = true, silent = true, desc = "Move to below window" })
-vim.keymap.set("t", "<C-w>k", "<C-\\><C-n><C-w>k", { noremap = true, silent = true, desc = "Move to above window" })
-vim.keymap.set("t", "<C-w>l", "<C-\\><C-n><C-w>l", { noremap = true, silent = true, desc = "Move to right window" })
-
--- Terminal: Close terminal in terminal mode
-vim.keymap.set("t", "<leader>xx", function()
-  if terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf) then
-    vim.api.nvim_buf_delete(terminal_buf, { force = true }) -- Delete terminal buffer
-    terminal_buf = nil                                      -- Reset terminal buffer variable
-    vim.notify("Terminal closed")
-  end
-end, { noremap = true, silent = true, desc = "Close terminal" })
-
--- Terminal: Hide terminal in terminal mode
-vim.keymap.set("t", "<leader>xh", function()
-  local win = vim.api.nvim_get_current_win()
-  if terminal_buf and vim.api.nvim_win_get_buf(win) == terminal_buf then
-    vim.api.nvim_win_hide(win) -- Hide terminal window
-    vim.notify("Terminal hidden")
-  end
-end, { noremap = true, silent = true, desc = "Hide terminal" })
-
--- Trouble
-vim.keymap.set("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Trouble: Workspace diagnostics" })
-vim.keymap.set(
-  "n",
-  "<leader>xd",
-  "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
-  { desc = "Trouble: Document diagnostics" }
-)
-vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", { desc = "Trouble: Quickfix list" })
-vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", { desc = "Trouble: Location list" })
-vim.keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<CR>", { desc = "Trouble: Todos in Trouble" })
-
--- Telescope Fuzzy Finder--
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find Files in CWD" })
-vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Find Recent Files" })
-vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find String in CWD" })
-vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find String Under Cursor" })
-vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todos" })
+-- vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+-- vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle File Explorer on Current File" })
+-- vim.keymap.set("n", "<leader>ew", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse File Explorer" })
+-- vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" })
+-- vim.keymap.set("n", "<leader>ep", function()
+--   require("nvim-tree.api").tree.change_root(vim.loop.cwd())
+--   require("nvim-tree.api").tree.reload()
+-- end, { desc = "Reset File Exporer to Project Root" })
 
 -- hlsearch is built in vim use shift+3 "#" to search for anything under cursor or selected in file --
 -- "n" moves backwards; shift+n moves forwards --
@@ -158,7 +66,12 @@ vim.keymap.set("n", "b", "b:nohlsearch<CR>", { noremap = true, silent = true })
 
 local M = {}
 
--- Formatting --
+
+
+
+--------------------
+---- Formatting ----
+--------------------
 M.formatting_keymaps = function()
   local conform = require("conform")
   vim.keymap.set({ "n", "v" }, "<leader>mp", function()
@@ -170,12 +83,28 @@ M.formatting_keymaps = function()
   end, { desc = "Format file or range (in visual mode)" })
 end
 
--- Linting
+-----------------
+---- Linting ----
+-----------------
 vim.keymap.set("n", "<leader>ll", function()
   require("lint").try_lint()
 end, { desc = "Trigger linting for current file" })
 
--- Git Signs --
+-- Trouble
+vim.keymap.set("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Trouble: Workspace diagnostics" })
+vim.keymap.set(
+  "n",
+  "<leader>xd",
+  "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
+  { desc = "Trouble: Document diagnostics" }
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", { desc = "Trouble: Quickfix list" })
+vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", { desc = "Trouble: Location list" })
+vim.keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<CR>", { desc = "Trouble: Todos in Trouble" })
+
+-------------------
+---- Git Signs ----
+-------------------
 M.gitsigns_keymaps = function(bufnr)
   local gs = package.loaded.gitsigns
 
@@ -255,7 +184,6 @@ M.lsp_keymaps = function(bufnr)
   vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { desc = "Restart All LSPs", unpack(opts) })
 end
 
--- Toggle Individual LSPs
 local lsp_clients = {
   -- First set
   [1] = {
@@ -281,6 +209,43 @@ local lsp_clients = {
   },
 }
 
+local function has_eslint_config()
+  local root_dir = vim.fn.getcwd()
+  local config_files = {
+    ".eslintrc.js",
+    ".eslintrc.cjs",
+    ".eslintrc.json",
+    ".eslintrc.yaml",
+    ".eslintrc.yml",
+    "eslint.config.js",
+    "eslint.config.mjs",
+    "eslint.config.cjs",
+    "eslint.config.ts",
+  }
+
+  -- Check for config files
+  for _, config in ipairs(config_files) do
+    if vim.fn.filereadable(root_dir .. "/" .. config) == 1 then
+      return true
+    end
+  end
+
+  -- Check package.json for eslintConfig
+  local pkg_json = root_dir .. "/package.json"
+  if vim.fn.filereadable(pkg_json) == 1 then
+    local ok, content = pcall(vim.fn.readfile, pkg_json)
+    if ok and content then
+      local json_str = table.concat(content, "")
+      local ok_decode, json = pcall(vim.fn.json_decode, json_str)
+      if ok_decode and json and json.eslintConfig then
+        return true
+      end
+    end
+  end
+
+  return false
+end
+
 local function toggle_lsp(client_name)
   local clients = vim.lsp.get_clients()
   for _, client in ipairs(clients) do
@@ -299,11 +264,11 @@ local function toggle_lsp(client_name)
   end
 
   -- Validate LSP-specific conditions
-  local root_dir = vim.fn.getcwd() -- Example root directory check
+  local root_dir = vim.fn.getcwd()
   if client_name == "rust_analyzer" and vim.fn.filereadable(root_dir .. "/Cargo.toml") == 0 then
     vim.notify("LSP [rust_analyzer] requires Cargo.toml in the project root.", vim.log.levels.WARN)
     return
-  elseif client_name == "eslint" and vim.fn.filereadable(root_dir .. "/.eslintrc*") == 0 then
+  elseif client_name == "eslint" and not has_eslint_config() then
     vim.notify("LSP [eslint] requires an ESLint config file in the project root.", vim.log.levels.WARN)
     return
   end
@@ -369,51 +334,5 @@ end
 
 -- Toggle all LSPs
 vim.keymap.set("n", "<leader>la", toggle_all_lsps, { desc = "Toggle All LSPs" })
-
--- Snacks --
-M.snacks_keymaps = function()
-  local Snacks = require("snacks")
-
-  vim.keymap.set("n", "<leader>bd", function()
-    Snacks.bufdelete()
-  end, { desc = "Delete Buffer" })
-  vim.keymap.set("n", "<S-w>", function()
-    Snacks.bufdelete()
-  end, { desc = "Delete Buffer" })
-
-  -- Lazygit
-  vim.keymap.set("n", "<leader>gg", function()
-    Snacks.lazygit()
-  end, { desc = "Lazygit" })
-
-  -- Git Blame
-  vim.keymap.set("n", "<leader>gb", function()
-    Snacks.git.blame_line()
-  end, { desc = "Git Blame Line" })
-
-  -- Git Browse
-  vim.keymap.set("n", "<leader>gB", function()
-    Snacks.gitbrowse()
-  end, { desc = "Git Browse" })
-
-  -- Lazygit File History
-  vim.keymap.set("n", "<leader>gf", function()
-    Snacks.lazygit.log_file()
-  end, { desc = "Lazygit Current File History" })
-
-  -- Lazygit Log (cwd)
-  vim.keymap.set("n", "<leader>gl", function()
-    Snacks.lazygit.log()
-  end, { desc = "Lazygit Log (cwd)" })
-
-  -- Reference Navigation
-  vim.keymap.set({ "n", "t" }, "]]", function()
-    Snacks.words.jump(vim.v.count1)
-  end, { desc = "Next Reference" })
-
-  vim.keymap.set({ "n", "t" }, "[[", function()
-    Snacks.words.jump(-vim.v.count1)
-  end, { desc = "Previous Reference" })
-end
 
 return M

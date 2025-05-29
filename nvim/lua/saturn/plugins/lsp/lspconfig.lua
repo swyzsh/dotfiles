@@ -21,7 +21,7 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(event)
-        local remap = require("saturn.remaps.core")
+        local remap = require("saturn.remap")
         remap.lsp_keymaps(event.buf)
       end,
     })
@@ -41,13 +41,39 @@ return {
       filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
     })
 
+    local eslint_root = lspconfig.util.root_pattern(
+      ".eslintrc.js",
+      ".eslintrc.cjs",
+      ".eslintrc.json",
+      ".eslintrc.yaml",
+      ".eslintrc.yml",
+      "eslint.config.js",
+      "eslint.config.mjs",
+      "eslint.config.cjs",
+      "eslint.config.ts",
+      "package.json"
+    )
     lspconfig.eslint.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>el", "<cmd>EslintFixAll<CR>", { silent = true })
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lx", "<cmd>EslintFixAll<CR>", { silent = true })
       end,
-      root_dir = lspconfig.util.root_pattern(".eslintrc*", "eslint.config.*", "package.json"),
-      cmd = { "eslint", "--config", "./eslint.config.mjs", "--stdin", "--stdin-filename", "%filepath" },
+      root_dir = function(fname)
+        local root = eslint_root(fname)
+        if root then
+          local pkg = root .. "/package.json"
+          if vim.fn.filereadable(pkg) == 1 then
+            local json = vim.fn.json_decode(vim.fn.readfile(pkg))
+            if json and json.eslintConfig then
+              return root
+            end
+          else
+            return root -- eslint.config.* or .eslintrc.* found
+          end
+        end
+        return nil -- disable eslint
+      end,
+      cmd = { "eslint_d", "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
       settings = {
         format = { enable = true },
       },
