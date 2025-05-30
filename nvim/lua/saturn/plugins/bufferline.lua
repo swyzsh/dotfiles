@@ -32,8 +32,10 @@ return {
         themable = true,
         offsets = {
           {
-            filetype = "NvimTree",
-            text = "Nvim Tree",
+            -- filetype = "NvimTree",
+            -- text = "Nvim Tree",
+            -- filetype = "snacks_layout_box",
+            -- text = "Snacks.explorer",
             separator = true,
             text_align = "left",
           },

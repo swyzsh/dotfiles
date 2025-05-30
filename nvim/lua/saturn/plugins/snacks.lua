@@ -53,6 +53,9 @@ return {
       enabled = true,
       replace_netrw = true,
     },
+    image = {
+      enabled = false,
+    },
     indent = { enabled = false },
     input = { enabled = true },
     picker = {
@@ -61,11 +64,20 @@ return {
         explorer = {
           auto_close = false,
           show_empty = true,
+          diagnostics = false,
           layout = {
             layout = {
               box = 'vertical',
-              width = 0.16,
+              width = 36,
               border = 'none',
+            }
+          },
+          win = {
+            list = {
+              wo = {
+                relativenumber = false,
+                numberwidth = 4,
+              }
             }
           }
         }

@@ -41,6 +41,44 @@ return {
       filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
     })
 
+    local function has_eslint_config(root_dir)
+      local config_files = {
+        ".eslintrc.js",
+        ".eslintrc.cjs",
+        ".eslintrc.json",
+        ".eslintrc.yaml",
+        ".eslintrc.yml",
+        "eslint.config.js",
+        "eslint.config.mjs",
+        "eslint.config.cjs",
+        "eslint.config.ts",
+        "eslint.config.mts",
+        "eslint.config.cts",
+      }
+
+      -- Check for config files
+      for _, config in ipairs(config_files) do
+        if vim.fn.filereadable(root_dir .. "/" .. config) == 1 then
+          return true
+        end
+      end
+
+      -- Check package.json for eslintConfig
+      local pkg_json = root_dir .. "/package.json"
+      if vim.fn.filereadable(pkg_json) == 1 then
+        local ok, content = pcall(vim.fn.readfile, pkg_json)
+        if ok and content then
+          local json_str = table.concat(content, "")
+          local ok_decode, json = pcall(vim.fn.json_decode, json_str)
+          if ok_decode and json and json.eslintConfig then
+            return true
+          end
+        end
+      end
+
+      return false
+    end
+
     local eslint_root = lspconfig.util.root_pattern(
       ".eslintrc.js",
       ".eslintrc.cjs",
@@ -51,31 +89,37 @@ return {
       "eslint.config.mjs",
       "eslint.config.cjs",
       "eslint.config.ts",
+      "eslint.config.mts",
+      "eslint.config.cts",
       "package.json"
     )
+
     lspconfig.eslint.setup({
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
+      on_attach = function(_, bufnr)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lx", "<cmd>EslintFixAll<CR>", { silent = true })
       end,
       root_dir = function(fname)
         local root = eslint_root(fname)
-        if root then
-          local pkg = root .. "/package.json"
-          if vim.fn.filereadable(pkg) == 1 then
-            local json = vim.fn.json_decode(vim.fn.readfile(pkg))
-            if json and json.eslintConfig then
-              return root
-            end
-          else
-            return root -- eslint.config.* or .eslintrc.* found
-          end
+        if root and has_eslint_config(root) then
+          return root
         end
-        return nil -- disable eslint
+        return nil -- disable eslint if no config found
       end,
-      cmd = { "eslint_d", "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
       settings = {
         format = { enable = true },
+        validate = "on",
+        packageManager = "npm",
+        useESLintClass = false,
+        experimental = {
+          useFlatConfig = false
+        },
+        codeActionOnSave = {
+          enable = false,
+          mode = "all"
+        },
+        run = "onType",
+        nodePath = "",
       },
     })
 

@@ -5,13 +5,13 @@ require("saturn.remap")
 require("saturn.lazy")
 
 ----------------------- Colorschemes ---------------------------
--- vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("tokyonight")
 -- vim.cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
 -- vim.cmd.colorscheme("gruvbox")
 -- vim.cmd.colorscheme("github_dark")
 -- vim.cmd.colorscheme("mellow")
-vim.cmd.colorscheme("oldworld")
+-- vim.cmd.colorscheme("oldworld")
 -- vim.cmd.colorscheme("vesper")
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- Manual background transparency if needed
@@ -89,3 +89,5 @@ vim.opt.splitbelow = true         -- Split horizontal window to the bottom
 
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.swapfile = false          -- Turn off swapfile creation, not recommended / save often / use autosave
+
+vim.opt.fillchars:append("eob:~") -- Show end of buffer
