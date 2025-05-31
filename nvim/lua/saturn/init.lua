@@ -4,6 +4,7 @@ require("saturn.remap")
 
 require("saturn.lazy")
 
+
 ----------------------- Colorschemes ---------------------------
 vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("tokyonight")
