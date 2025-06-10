@@ -18,8 +18,8 @@ theme = catppuccin-mocha
 # theme = oldworld
 # theme = vesper
 # theme = Kanagawa Dragon
-background-opacity = 0.75 
-background-blur = 25
+background-opacity = 0.80 
+background-blur = 20
 cursor-style = block
 cursor-style-blink = true
 window-padding-x = 12,12
@@ -29,7 +29,7 @@ window-padding-y = 6,6
 font-family = "CommitMono Nerd Font"
 font-family-italic = "VictorMono Nerd Font"
 # font-family = "DepartureMono Nerd Font"
-font-size = 16
+font-size = 15
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
@@ -46,8 +46,10 @@ keybind = ctrl+eight=goto_tab:8
 keybind = ctrl+nine=goto_tab:9
 keybind = ctrl+zero=last_tab
 
-keybind = cmd+d=new_split:right
-keybind = cmd+shift+d=new_split:down
+# keybind = cmd+d=new_split:right
+# keybind = cmd+shift+d=new_split:down
+keybind = cmd+d=unbind
+keybind = cmd+shift+d=unbind
 
 keybind = cmd+h=goto_split:left
 keybind = cmd+j=goto_split:down
@@ -59,3 +61,4 @@ keybind = ctrl+cmd+j=resize_split:down,10
 keybind = ctrl+cmd+k=resize_split:up,10
 keybind = ctrl+cmd+l=resize_split:right,10
 # keybind = ctrl+cmd+= =equalize_splits
+
