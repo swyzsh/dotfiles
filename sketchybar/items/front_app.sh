@@ -1,7 +1,7 @@
 #!/bin/sh
 
 front_app=(
-  label.font="$FONT:Semibold:14.0"
+  label.font="$FONT_ALT:Italic:14.0"
   icon.drawing=off
   display=active
   script="$PLUGIN_DIR/front_app.sh"

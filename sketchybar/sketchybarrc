@@ -7,6 +7,7 @@ ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
 PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
 
 FONT="CommitMono Nerd Font" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+FONT_ALT="VictorMono Nerd Font" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
 PADDINGS=2 # All paddings use this value (icon, label, background)
 
 # aerospace setting
@@ -50,15 +51,9 @@ defaults=(
   label.shadow.color=0xff000000
   padding_right=$PADDINGS
   padding_left=$PADDINGS
-  background.height=24
+  background.height=22
   background.corner_radius=6
-  background.border_width=0
-  popup.background.border_width=2
-  popup.background.corner_radius=9
-  popup.background.border_color=$POPUP_BORDER_COLOR
-  popup.background.color=$POPUP_BACKGROUND_COLOR
-  popup.blur_radius=20
-  popup.background.shadow.drawing=on
+  background.border_width=2
   scroll_texts=on
 
 )

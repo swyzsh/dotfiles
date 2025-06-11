@@ -1,19 +1,20 @@
 #!/bin/bash
 
 ### Catppuccin
-export BLACK=0xff181926
-export WHITE=0xffcad3f5
-export RED=0xffed8796
-export GREEN=0xffa6da95
-export BLUE=0xff8aadf4
-export YELLOW=0xffeed49f
-export ORANGE=0xfff5a97f
-export MAGENTA=0xffc6a0f6
-export GREY=0xff939ab7
+export BLACK=0xff45475a
+export RED=0xfff38ba8
+export GREEN=0xffa6e3a1
+export YELLOW=0xfff9e2af
+export BLUE=0xff89b4fa
+export PINK=0xfff5c2e7
+export MINT=0xff94e2d5
+export PURPLE=0xffcba6f7
 export TRANSPARENT=0x00000000
-export BG0=0x801e1e2e
-export BG1=0x603c3e4f
-export BG2=0x40494d64
+export WHITE=0xffcdd6f4
+export GREY=0xcccdd6f4
+export BG0=0xcc1e1e2e
+export BG1=0xcc353749
+export BG2=0xcc45475a
 
 export BATTERY_1=0xffa6da95
 export BATTERY_2=0xffeed49f
@@ -28,7 +29,5 @@ export BACKGROUND_1=$BG1
 export BACKGROUND_2=$BG2
 export ICON_COLOR=$WHITE # Color of all icons
 export LABEL_COLOR=$WHITE # Color of all labels
-export POPUP_BACKGROUND_COLOR=$BAR_COLOR
-export POPUP_BORDER_COLOR=$WHITE
 export SHADOW_COLOR=$BLACK
 

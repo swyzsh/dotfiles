@@ -11,7 +11,7 @@ for i in {1..5}; do
   space=(
     space="$i"
     icon="$i"
-    icon.highlight_color=$RED
+    icon.highlight_color=$YELLOW
     icon.padding_left=10
     icon.padding_right=10
     display=$MAIN_MONITOR
@@ -49,7 +49,7 @@ done
     space=(
       space="$i"
       icon="$i"
-      icon.highlight_color=$RED
+      icon.highlight_color=$YELLOW
       icon.padding_left=10
       icon.padding_right=10
       display=$SECONDARY_MONITOR
@@ -82,18 +82,15 @@ done
     sketchybar --set space.$i label="$icon_strip"
   done
 
-# Space change handler
-space_creator=(
-  icon=􀆊
-  icon.font="$FONT:Heavy:16.0"
-  padding_left=10
-  padding_right=8
+space_change_handler=(
+  icon.drawing=off
   label.drawing=off
   display=active
+  padding_left=$PADDINGS
+  padding_right=$PADDINGS
   script="$PLUGIN_DIR/space_windows.sh"
-  icon.color=$WHITE
 )
 
-sketchybar --add item space_creator left \
-           --set space_creator "${space_creator[@]}" \
-           --subscribe space_creator aerospace_workspace_change
+sketchybar --add item space_change_handler left \
+           --set space_change_handler "${space_change_handler[@]}" \
+           --subscribe space_change_handler aerospace_workspace_change
