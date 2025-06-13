@@ -1,8 +1,0 @@
-macos-icon = "blueprint"
-
-macos-titlebar-style = "transparent"
-
-window-height = 50
-window-width = 150
-
-macos-option-as-alt = true
