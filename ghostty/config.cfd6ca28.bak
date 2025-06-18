@@ -9,7 +9,7 @@ quit-after-last-window-closed = true
 shell-integration-features = no-cursor
 mouse-scroll-multiplier = 0.69
 
-# -- Colors --
+# -- Appearance --
 # theme = catppuccin-mocha
 # theme = tokyonight_night
 # theme = nightfox
@@ -18,8 +18,6 @@ mouse-scroll-multiplier = 0.69
 theme = oldworld
 # theme = vesper
 # theme = Kanagawa Dragon
-
-# -- Appearance --
 background-opacity = 0.80 
 background-blur = 32
 cursor-style = block
@@ -35,3 +33,30 @@ font-size = 16
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+
+# -- Keybinds --
+keybind = ctrl+one=goto_tab:1
+keybind = ctrl+two=goto_tab:2
+keybind = ctrl+three=goto_tab:3
+keybind = ctrl+four=goto_tab:4
+keybind = ctrl+five=goto_tab:5
+keybind = ctrl+six=goto_tab:6
+keybind = ctrl+seven=goto_tab:7
+keybind = ctrl+eight=goto_tab:8
+keybind = ctrl+nine=goto_tab:9
+keybind = ctrl+zero=last_tab
+
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+# keybind = cmd+d=unbind
+# keybind = cmd+shift+d=unbind
+
+keybind = cmd+h=goto_split:left
+keybind = cmd+j=goto_split:down
+keybind = cmd+k=goto_split:up
+keybind = cmd+l=goto_split:right
+
+keybind = ctrl+cmd+h=resize_split:left,10
+keybind = ctrl+cmd+j=resize_split:down,10
+keybind = ctrl+cmd+k=resize_split:up,10
+keybind = ctrl+cmd+l=resize_split:right,10

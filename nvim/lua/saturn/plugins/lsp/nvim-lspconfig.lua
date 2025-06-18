@@ -28,16 +28,6 @@ return {
 
     lspconfig.ts_ls.setup({
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        client.server_capabilities.document_formatting = false
-        vim.api.nvim_buf_set_keymap(
-          bufnr,
-          "n",
-          "gh",
-          "<cmd>lua vim.lsp.buf.hover()<CR>",
-          { silent = true }
-        )
-      end,
       filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
     })
 
@@ -147,18 +137,6 @@ return {
       },
     })
 
-    lspconfig.rust_analyzer.setup({
-      settings = {
-        ["rust_analyzer"] = {
-          check = {
-            command = "clippy",
-          },
-          diagnostics = {
-            enable = true,
-          },
-        },
-      },
-    })
 
     -- Additional servers with basic setup
     local servers = {
@@ -181,5 +159,3 @@ return {
     end
   end,
 }
-
--- FIX: Eslint and Eslint_d are both being used in a file why?
