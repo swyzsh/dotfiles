@@ -26,6 +26,27 @@ return {
 			end,
 		})
 
+		lspconfig.cssls.setup({
+			capabilities = capabilities,
+			settings = {
+				css = {
+					lint = {
+						unknownAtRules = "ignore",
+					},
+				},
+				scss = {
+					lint = {
+						unknownAtRules = "ignore",
+					},
+				},
+				less = {
+					lint = {
+						unknownAtRules = "ignore",
+					},
+				},
+			},
+		})
+
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
@@ -58,7 +79,6 @@ return {
 		-- Additional servers with basic setup
 		local servers = {
 			"bashls",
-			"cssls",
 			"docker_compose_language_service",
 			"dockerls",
 			"html",

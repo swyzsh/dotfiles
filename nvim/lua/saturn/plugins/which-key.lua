@@ -44,19 +44,20 @@ return {
 
 			-- Group: Diagnostics
 			{ "<leader>d", group = "Diagnostics" },
-			{ "<leader>db", icon = " ", group = "Show buffer diagnostics" },
-			{ "<leader>dl", icon = " ", group = "Show line diagnostics" },
+			{ "<leader>dw", icon = " 󰈔", group = "Workspace diagnostics" },
+			{ "<leader>db", icon = " ", group = "buffer diagnostics" },
+			{ "<leader>dl", icon = " ", group = "line diagnostics" },
 
 			-- Group: Terminal & Trouble Diagnostics
 			{ "<leader>x", group = "Trouble Diagnostics" },
 
 			-- Group: File Explorer
 			{ "<leader>e", icon = "󰙅", group = "File Explorer" },
-			{ "<leader>ee", icon = "󰙅 ", group = "Toggle file explorer" },
-			{ "<leader>ef", icon = "󰙅 󰈔", group = "Toggle file explorer on current file" },
-			{ "<leader>ep", icon = "󰙅 ", group = "Reset file explorer to project root" },
-			{ "<leader>er", icon = "󰙅 󰑐", group = "Refresh file explorer" },
-			{ "<leader>ew", icon = "󰙅 󰘕", group = "Collapse file explorer" },
+			-- { "<leader>ee", icon = "󰙅 ", group = "Toggle file explorer" },
+			-- { "<leader>ef", icon = "󰙅 󰈔", group = "Toggle file explorer on current file" },
+			-- { "<leader>ep", icon = "󰙅 ", group = "Reset file explorer to project root" },
+			-- { "<leader>er", icon = "󰙅 󰑐", group = "Refresh file explorer" },
+			-- { "<leader>ew", icon = "󰙅 󰘕", group = "Collapse file explorer" },
 
 			-- Group: Fuzzy Finder
 			{ "<leader>/", icon = "", group = "Grep" },

@@ -9,13 +9,13 @@ local api = vim.api
 local opt = vim.opt
 
 ----------------------- Colorschemes ---------------------------
--- cmd.colorscheme("catppuccin")
+cmd.colorscheme("catppuccin")
 -- cmd.colorscheme("tokyonight")
 -- cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
 -- cmd.colorscheme("gruvbox")
 -- cmd.colorscheme("github_dark")
 -- cmd.colorscheme("mellow")
-cmd.colorscheme("oldworld")
+-- cmd.colorscheme("oldworld")
 -- cmd.colorscheme("vesper")
 -- api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
