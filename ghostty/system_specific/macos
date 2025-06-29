@@ -1,11 +1,16 @@
+# -- General --
+macos-option-as-alt = true
+
+# -- Fonts --
+font-size = 15
+
+# -- Appearance --
+background-opacity = 0.90
+background-blur = 48
 macos-icon = "official"
-
 macos-titlebar-style = "transparent"
-
 window-height = 50
 window-width = 150
-
-macos-option-as-alt = true
 
 # -- Keybinds --
 keybind = ctrl+one=goto_tab:1

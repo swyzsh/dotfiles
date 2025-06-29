@@ -1,6 +1,6 @@
 # -- System specific imports --
-config-file = "?./system_specific/macos"
-# config-file = "?./system_specific/linux"
+# config-file = "?./system_specific/macos"
+config-file = "?./system_specific/linux"
 
 # -- General system specs --
 desktop-notifications = true
@@ -22,8 +22,6 @@ theme = kanso-ink
 # theme = kanso-zen
 
 # -- Appearance --
-background-opacity = 0.90
-background-blur = 48
 cursor-style = block
 cursor-style-blink = true
 window-padding-x = 12,12
@@ -34,7 +32,6 @@ font-family = "JetBrainsMono Nerd Font"
 # font-family = "CommitMono Nerd Font"
 # font-family-italic = "VictorMono Nerd Font"
 # font-family = "DepartureMono Nerd Font"
-font-size = 15
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
