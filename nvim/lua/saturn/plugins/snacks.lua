@@ -216,6 +216,13 @@ return {
 			desc = "Find Git Files",
 		},
 		{
+			"<leader>fh",
+			function()
+				Snacks.picker.highlights({ pattern = "hl_group:^Snacks" })
+			end,
+			desc = "Show Snacks Colors",
+		},
+		{
 			"<leader>fp",
 			function()
 				Snacks.picker.projects()
@@ -238,11 +245,12 @@ return {
 			mode = { "n", "x" },
 		},
 		{
-			"<leader>fh",
+			"<leader>ft",
 			function()
-				Snacks.picker.highlights({ pattern = "hl_group:^Snacks" })
+				---@diagnostic disable-next-line: undefined-field
+				Snacks.picker.todo_comments()
 			end,
-			desc = "Show Snacks Colors",
+			desc = "Find todo comments",
 		},
 
 		-- Diagnostics --

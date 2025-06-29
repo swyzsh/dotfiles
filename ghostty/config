@@ -15,23 +15,26 @@ mouse-scroll-multiplier = 0.69
 # theme = nightfox
 # theme = terafox 
 # theme = duskfox 
-theme = oldworld
+# theme = oldworld
 # theme = vesper
 # theme = Kanagawa Dragon
+theme = kanso-ink
+# theme = kanso-zen
 
 # -- Appearance --
-background-opacity = 0.80 
-background-blur = 32
+background-opacity = 0.90
+background-blur = 48
 cursor-style = block
 cursor-style-blink = true
 window-padding-x = 12,12
 window-padding-y = 6,6
 
 # -- Fonts --
-font-family = "CommitMono Nerd Font"
-font-family-italic = "VictorMono Nerd Font"
+font-family = "JetBrainsMono Nerd Font"
+# font-family = "CommitMono Nerd Font"
+# font-family-italic = "VictorMono Nerd Font"
 # font-family = "DepartureMono Nerd Font"
-font-size = 16
+font-size = 15
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig

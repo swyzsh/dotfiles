@@ -9,7 +9,8 @@ local api = vim.api
 local opt = vim.opt
 
 ----------------------- Colorschemes ---------------------------
-cmd.colorscheme("catppuccin")
+cmd.colorscheme("kanso")
+-- cmd.colorscheme("catppuccin")
 -- cmd.colorscheme("tokyonight")
 -- cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
 -- cmd.colorscheme("gruvbox")

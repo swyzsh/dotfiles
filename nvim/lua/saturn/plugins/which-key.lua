@@ -49,7 +49,7 @@ return {
 			{ "<leader>dl", icon = " ", group = "line diagnostics" },
 
 			-- Group: Terminal & Trouble Diagnostics
-			{ "<leader>x", group = "Trouble Diagnostics" },
+			-- { "<leader>x", group = "Trouble Diagnostics" },
 
 			-- Group: File Explorer
 			{ "<leader>e", icon = "󰙅", group = "File Explorer" },
@@ -77,7 +77,7 @@ return {
 
 			-- Group: Rename
 			{ "<leader>r", icon = "󰑕", group = "Rename" },
-			{ "<leader>rn", icon = "󰑕 ", group = "Smart rename" },
+			-- { "<leader>rn", icon = "󰑕 ", group = "Smart rename" },
 
 			-- Group: Session Manager
 			{ "<leader>q", icon = "", group = "Session Manager" },

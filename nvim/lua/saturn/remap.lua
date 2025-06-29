@@ -45,16 +45,9 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = " Cycle Buffers Backwards" }
 )
 
--- Nvim-Tree --
--- vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
--- vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle File Explorer on Current File" })
--- vim.keymap.set("n", "<leader>ew", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse File Explorer" })
--- vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh File Explorer" })
--- vim.keymap.set("n", "<leader>ep", function()
---   require("nvim-tree.api").tree.change_root(vim.loop.cwd())
---   require("nvim-tree.api").tree.reload()
--- end, { desc = "Reset File Exporer to Project Root" })
-
+--------------
+--- Search ---
+--------------
 -- hlsearch is built in vim use shift+3 "#" to search for anything under cursor or selected in file --
 -- "n" moves backwards; shift+n moves forwards --
 -- Following are keybinds to close hlsearch --
@@ -87,18 +80,12 @@ end
 vim.keymap.set("n", "<leader>ll", function()
 	require("lint").try_lint()
 end, { desc = "Trigger linting for current file" })
-
--- Trouble
-vim.keymap.set("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Trouble: Workspace diagnostics" })
-vim.keymap.set(
-	"n",
-	"<leader>xd",
-	"<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
-	{ desc = "Trouble: Document diagnostics" }
-)
-vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", { desc = "Trouble: Quickfix list" })
-vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", { desc = "Trouble: Location list" })
-vim.keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<CR>", { desc = "Trouble: Todos in Trouble" })
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+vim.keymap.set("n", "[t", function()
+	require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
 
 -------------------
 ---- Git Signs ----
@@ -146,41 +133,32 @@ end
 M.lsp_keymaps = function(bufnr)
 	local opts = { buffer = bufnr, silent = true }
 
-	vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", { desc = "Show LSP references", unpack(opts) })
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", unpack(opts) })
-	vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Show LSP definitions", unpack(opts) })
-	vim.keymap.set(
-		"n",
-		"gi",
-		"<cmd>Telescope lsp_implementations<CR>",
-		{ desc = "Show LSP implementations", unpack(opts) }
-	)
-	vim.keymap.set(
-		"n",
-		"gt",
-		"<cmd>Telescope lsp_type_definitions<CR>",
-		{ desc = "Show LSP type definitions", unpack(opts) }
-	)
 	vim.keymap.set(
 		{ "n", "v" },
 		"<leader>ca",
 		vim.lsp.buf.code_action,
 		{ desc = "See available code actions", unpack(opts) }
 	)
-	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Smart rename", unpack(opts) })
-	-- vim.keymap.set(
-	-- 	"n",
-	-- 	"<leader>db",
-	-- 	"<cmd>Telescope diagnostics bufnr=0<CR>",
-	-- 	{ desc = "Show buffer diagnostics", unpack(opts) }
-	-- )
+	vim.keymap.set(
+		"n",
+		"<leader>ra",
+		vim.lsp.buf.rename,
+		{ desc = " Rename all references to the symbol under the cursor.", unpack(opts) }
+	)
 	vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line diagnostics", unpack(opts) })
 	vim.keymap.set("n", "<C-i>", vim.diagnostic.open_float, { desc = "Show line diagnostics", unpack(opts) })
-	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", unpack(opts) })
-	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", unpack(opts) })
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show documentation for what is under cursor", unpack(opts) })
+	-- <S-k> vim.lsp.buf.hover -> Show documentation for what is under cursor (default keybind)
 	vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { desc = "Restart All LSPs", unpack(opts) })
 end
+
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Jump to previous diagnostic" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Jump to next diagnostic" })
+
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
 
 local lsp_clients = {
 	-- First set
