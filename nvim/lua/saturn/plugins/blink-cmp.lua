@@ -64,17 +64,30 @@ return {
 			},
 		},
 
-		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
+			accept = {
+				auto_brackets = {
+					enabled = true,
+				},
+			},
 			menu = {
 				border = "rounded",
+				draw = {
+					treesitter = { "lsp" },
+					-- nvim-cmp style menu
+					-- columns = {
+					-- 	{ "label", "label_description", gap = 1 },
+					-- 	{ "kind_icon", "kind", gap = 1 },
+					-- },
+				},
 			},
 			documentation = {
 				auto_show = true,
-				auto_show_delay_ms = 0,
+				auto_show_delay_ms = 20,
 				treesitter_highlighting = true,
 				window = { border = "rounded" },
 			},
+			ghost_text = { enabled = true },
 		},
 
 		snippets = { preset = "default" },

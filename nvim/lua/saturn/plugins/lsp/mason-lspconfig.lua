@@ -10,6 +10,7 @@ return {
 			"cssls",
 			"docker_compose_language_service",
 			"dockerls",
+			"eslint",
 			"emmet_ls",
 			"html",
 			"lua_ls",
@@ -19,7 +20,7 @@ return {
 			"rust_analyzer",
 			"solidity_ls_nomicfoundation",
 			"tailwindcss",
-			"ts_ls",
+			"vtsls",
 		},
 		automatic_enable = {
 			exclude = {},

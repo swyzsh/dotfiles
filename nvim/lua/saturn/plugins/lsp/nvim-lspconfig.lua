@@ -2,15 +2,11 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
+		"saghen/blink.cmp",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
@@ -25,6 +21,13 @@ return {
 				remap.lsp_keymaps(event.buf)
 			end,
 		})
+
+		-- lspconfig.ts_ls.setup({
+		-- 	capabilities = capabilities,
+		-- 	root_dir = function(...)
+		-- 		return require("lspconfig.util").root_pattern("tsconfig.json")(...)
+		-- 	end,
+		-- })
 
 		lspconfig.cssls.setup({
 			capabilities = capabilities,
@@ -47,21 +50,6 @@ return {
 			},
 		})
 
-		lspconfig.ts_ls.setup({
-			capabilities = capabilities,
-			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-		})
-
-		lspconfig.graphql.setup({
-			capabilities = capabilities,
-			filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
-		})
-
-		lspconfig.emmet_ls.setup({
-			capabilities = capabilities,
-			filetypes = { "html", "css", "sass", "scss", "less" },
-		})
-
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 			settings = {
@@ -81,12 +69,15 @@ return {
 			"bashls",
 			"docker_compose_language_service",
 			"dockerls",
+			"emmet_ls",
+			"eslint",
 			"html",
 			"marksman",
 			"prismals",
 			"pyright",
 			"solidity_ls_nomicfoundation",
 			"tailwindcss",
+			"vtsls",
 		}
 
 		for _, server in ipairs(servers) do

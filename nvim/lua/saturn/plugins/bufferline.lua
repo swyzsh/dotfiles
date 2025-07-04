@@ -5,6 +5,13 @@ return {
 
 		bufferline.setup({
 			-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			highlights = {
+				buffer_selected = {
+					bg = "#22262D",
+					bold = false,
+					italic = false,
+				},
+			},
 			options = {
 				close_command = "bp|sp|bn|bd! %d",
 				right_mouse_command = "bp|sp|bn|bd! %d",
@@ -21,25 +28,14 @@ return {
 				show_tab_indicators = true,
 				indicator = {
 					icon = "▎",
-					style = "icon", -- can be 'icon' | 'underline' | 'none'
+					style = "none", -- can be 'icon' | 'underline' | 'none'
 				},
 				enforce_regular_tabs = false,
-				view = "multiwindow",
 				show_buffer_close_icons = true,
 				separator_style = "thin",
 				always_show_bufferline = true,
 				diagnostics = false,
 				themable = true,
-				offsets = {
-					{
-						-- filetype = "NvimTree",
-						-- text = "Nvim Tree",
-						-- filetype = "snacks_layout_box",
-						-- text = "Snacks.explorer",
-						separator = true,
-						text_align = "left",
-					},
-				},
 			},
 		})
 
