@@ -5,7 +5,9 @@ return {
 		{ "echasnovski/mini.nvim", version = false },
 	},
 	event = "VeryLazy",
-	opts = {},
+	opts = {
+		preset = "helix",
+	},
 	keys = {
 		{
 			"<leader>?",
@@ -75,6 +77,9 @@ return {
 			{ "<leader>g", group = "Git" },
 			-- TODO: Complete Git icons
 
+			-- Git signs
+			{ "<leader>h", group = "Git Hunks" },
+
 			-- Group: Rename
 			{ "<leader>r", icon = "󰑕", group = "Rename" },
 			-- { "<leader>rn", icon = "󰑕 ", group = "Smart rename" },
@@ -97,30 +102,10 @@ return {
 			{ "<leader>[t", icon = " ", group = "Previous todo comment" },
 			{ "<leader>]t", icon = " ", group = "Next todo comment" },
 
-			-- Group: LSP
+			-- Group: LSPs & Linting
 			{ "<leader>l", icon = "", group = "LSPs & Linting" },
-			{ "<leader>la", group = "Toggle All LSPs on/off" },
 			{ "<leader>lr", icon = "", group = "Restart All LSPs" },
 			{ "<leader>ll", group = "Trigger linting for current file" },
-			-- Individual Sub groups of LSP Servers
-			{ "<leader>l1", icon = " ", group = "Servers Page 1" },
-			{ "<leader>l2", icon = " ", group = "Servers Page 2" },
-			{ "<leader>l11", icon = "", group = "Toggle bashls" },
-			{ "<leader>l12", icon = "", group = "Toggle cssls" },
-			{ "<leader>l13", icon = "", group = "Toggle docker_compose_language_service" },
-			{ "<leader>l14", icon = "", group = "Toggle dockerls" },
-			{ "<leader>l15", icon = "󰖟", group = "Toggle emmet_ls" },
-			{ "<leader>l16", icon = "󰱺", group = "Toggle eslint" },
-			{ "<leader>l17", icon = "", group = "Toggle graphql" },
-			{ "<leader>l18", icon = "", group = "Toggle html" },
-			{ "<leader>l19", icon = "", group = "Toggle lua_ls" },
-			{ "<leader>l21", icon = "", group = "Toggle marksman" },
-			{ "<leader>l22", icon = "", group = "Toggle prismals" },
-			{ "<leader>l23", icon = "", group = "Toggle pyright" },
-			{ "<leader>l24", icon = "", group = "Toggle rust_analyzer" },
-			{ "<leader>l25", icon = "", group = "Toggle solidity_ls_nomicfoundation" },
-			{ "<leader>l26", icon = "", group = "Toggle tailwindcss" },
-			{ "<leader>l27", icon = "", group = "Toggle ts_ls" },
 		})
 
 		wk.setup(opts)

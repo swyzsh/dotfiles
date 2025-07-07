@@ -14,18 +14,11 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		vim.api.nvim_create_autocmd("LspAttach", {
-			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-			callback = function(event)
-				local remap = require("saturn.remap")
-				remap.lsp_keymaps(event.buf)
-			end,
-		})
-
-		-- lspconfig.ts_ls.setup({
-		-- 	capabilities = capabilities,
-		-- 	root_dir = function(...)
-		-- 		return require("lspconfig.util").root_pattern("tsconfig.json")(...)
+		-- vim.api.nvim_create_autocmd("LspAttach", {
+		-- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+		-- 	callback = function(event)
+		-- 		local remap = require("saturn.remap")
+		-- 		remap.lsp_keymaps(event.buf)
 		-- 	end,
 		-- })
 

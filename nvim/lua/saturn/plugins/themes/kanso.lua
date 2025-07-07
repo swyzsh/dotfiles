@@ -4,7 +4,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("kanso").setup({
-			bold = true, -- enable bold fonts
+			bold = false, -- enable bold fonts
 			italics = true, -- enable italics
 			compile = false, -- enable compiling the colorscheme
 			undercurl = true, -- enable undercurls
