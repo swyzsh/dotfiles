@@ -23,6 +23,8 @@ local g = vim.g
 --- Kanso ---
 cmd.colorscheme("kanso")
 api.nvim_set_hl(0, "FloatBorder", { fg = "#2D4F67" })
+-- api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
+-- api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
 -------------
 
 --- Oldworld ---
