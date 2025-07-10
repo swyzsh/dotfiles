@@ -14,31 +14,17 @@ local g = vim.g
 -- cmd.colorscheme("catppuccin")
 -- cmd.colorscheme("tokyonight")
 -- cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
--- cmd.colorscheme("gruvbox")
 -- cmd.colorscheme("github_dark")
--- cmd.colorscheme("mellow")
+cmd.colorscheme("oldworld")
 -- cmd.colorscheme("vesper")
 -- api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
 --- Kanso ---
-cmd.colorscheme("kanso")
-api.nvim_set_hl(0, "FloatBorder", { fg = "#2D4F67" })
+-- cmd.colorscheme("kanso")
+-- api.nvim_set_hl(0, "FloatBorder", { fg = "#2D4F67" })
 -- api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
 -- api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
 -------------
-
---- Oldworld ---
--- cmd.colorscheme("oldworld")
--- Manually enable transparency
--- api.nvim_set_hl(0, "Normal", { bg = "none" }) -- main text area
--- api.nvim_set_hl(0, "NormalNC", { bg = "none" }) -- non-current/non-focused window
--- api.nvim_set_hl(0, "NonText", { bg = "none" }) -- fill characters for empty lines
--- api.nvim_set_hl(0, "SignColumn", { bg = "none" }) -- side column where linters/git signs are displayed
--- api.nvim_set_hl(0, "StatusLine", { bg = "none" })   -- main status line at the bottom of the window
--- api.nvim_set_hl(0, "StatusLineNC", { bg = "none" }) -- status line for non-current windows
--- api.nvim_set_hl(0, "Pmenu", { bg = "none" }) -- popup menu for autocompletion, lsp def etc.
--- api.nvim_set_hl(0, "NormalFloat", { bg = "none" }) -- normal floating windows like snacks' fzf
-----------------
 
 ----------------------------------------------------------------
 

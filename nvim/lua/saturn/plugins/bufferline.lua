@@ -4,13 +4,34 @@ return {
 		local bufferline = require("bufferline")
 
 		bufferline.setup({
-			-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			-- highlights = require("catppuccin.groups.integrations.bufferline").get(), -- Catppuccin Theme
 			highlights = {
+				-- Oldworld Theme --
+				fill = {
+					bg = "#161617",
+				},
+				background = {
+					bg = "#161617",
+				},
+				close_button = {
+					bg = "#161617",
+				},
+				close_button_selected = {
+					bg = "#27272a",
+				},
 				buffer_selected = {
-					bg = "#22262D",
+					bg = "#27272a",
 					bold = false,
 					italic = false,
 				},
+				separator = { bg = "#161617" },
+				-------------------
+				-- buffer_selected = {
+				-- 	-- bg = "#22262D", -- Kanso Ink Theme
+				-- 	-- bg = "#292e42", -- Tokyonight Night Theme
+				-- 	bold = false,
+				-- 	italic = false,
+				-- },
 			},
 			options = {
 				close_command = "bp|sp|bn|bd! %d",
