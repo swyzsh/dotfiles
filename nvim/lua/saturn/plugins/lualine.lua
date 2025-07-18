@@ -33,8 +33,24 @@ return {
 
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { { "filename", path = 1 } },
+				lualine_b = {
+					"branch",
+					"diff",
+					"diagnostics",
+				},
+				lualine_c = {
+					{ "filename", path = 1 },
+					{
+						function()
+							local record_id = vim.fn.reg_recording()
+							if record_id ~= "" then
+								return "M"
+							end
+							return ""
+						end,
+						color = { fg = oldworld_p.orange, gui = "bold" }, -- Macro indicator
+					},
+				},
 				lualine_x = {
 					{
 						lazy_status.updates,

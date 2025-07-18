@@ -34,12 +34,13 @@ return {
 		wk.add({
 			-- Group: Buffer
 			{ "<leader>b", icon = "", group = "Buffers" },
-			{ "<leader>bb", icon = " ", group = "List all buffers" },
-			{ "<leader>bd", icon = " 󰗨", group = "Delete buffer" },
-			{ "<leader>bh", icon = " ", group = "Previous buffer" },
-			{ "<leader>bl", icon = " ", group = "Next buffer" },
-			{ "<leader>bs", icon = " ", group = "Split w/ next buffer" },
-			{ "<leader>bw", icon = " ", group = "Wipeout buffer" },
+			{ "<leader>bb", icon = "  ", group = " Recent buffer" },
+			{ "<leader>bl", icon = "  ", group = " List all buffers" },
+			{ "<leader>bd", icon = " 󰗨 ", group = " Delete buffer" },
+			{ "<leader>b[", icon = "  ", group = " Previous buffer" },
+			{ "<leader>b]", icon = "  ", group = " Next buffer" },
+			{ "<leader>bs", icon = "  ", group = " Split w/ next buffer" },
+			{ "<leader>bw", icon = "  ", group = " Wipeout buffer" },
 
 			-- Group: Tabs
 			{ "<leader>t", icon = "󰓩", group = "Tabs" },

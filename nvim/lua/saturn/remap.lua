@@ -30,13 +30,14 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>tt", ":tabs<CR>", { noremap = true, silent = true, desc = "List All Tabs" })
 
 -- Buffers --
-vim.keymap.set("n", "<leader>bl", ":bnext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
-vim.keymap.set("n", "<leader>bh", ":bprevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
+vim.keymap.set("n", "<leader>b]", ":bnext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>b[", ":bprevious<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
+vim.keymap.set("n", "<leader>bb", ":b#<CR>", { noremap = true, silent = true, desc = "Recent Buffer" })
 -- vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true }) -- Handled with plugins.snacks
 -- vim.keymap.set("n", "<S-w>", ":bdelete<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bw", ":bwipeout<CR>", { noremap = true, silent = true, desc = "Wipeout Buffer" })
 vim.keymap.set("n", "<leader>bs", ":sbnext<CR>", { noremap = true, silent = true, desc = "Split w/Next Buffer" })
-vim.keymap.set("n", "<leader>bb", ":buffers<CR>", { noremap = true, silent = true, desc = "List All Buffers" })
+vim.keymap.set("n", "<leader>bl", ":buffers<CR>", { noremap = true, silent = true, desc = "List All Buffers" })
 vim.keymap.set("n", "<TAB>", ":bnext<CR>", { noremap = true, silent = true, desc = " Cycle Buffers Forwards" })
 vim.keymap.set(
 	"n",
