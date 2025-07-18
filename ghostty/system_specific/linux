@@ -1,8 +1,10 @@
-# -- Appearance --
-background-opacity = 0.90
+# -- General --
 
 # -- Fonts --
 font-size = 13
+
+# -- Appearance --
+background-opacity = 0.90
 
 # -- Keybinds --
 keybind = ctrl+one=goto_tab:1

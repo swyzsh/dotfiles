@@ -37,4 +37,3 @@ font-family = "IBM Plex Mono"
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
-keybind = shift+enter=text:\n
