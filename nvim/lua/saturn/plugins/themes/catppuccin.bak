@@ -28,7 +28,8 @@ return {
 				custom_highlights = function(colors)
 					return {
 						-- Comment = { fg = colors.flamingo },
-						CursorLineNr = { fg = colors.peach },
+						-- CursorLineNr = { fg = colors.peach },
+						-- CursorLineNr = { fg = colors.blue },
 					}
 				end,
 				integrations = {

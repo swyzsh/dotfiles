@@ -7,23 +7,23 @@ require("saturn.lazy")
 local cmd = vim.cmd
 local api = vim.api
 local opt = vim.opt
-local g = vim.g
 
 ----------------------- Colorschemes ---------------------------
 
 -- cmd.colorscheme("catppuccin")
+-- cmd.colorscheme("rose-pine")
 -- cmd.colorscheme("tokyonight")
--- cmd.colorscheme("nightfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
+-- cmd.colorscheme("duskfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
 -- cmd.colorscheme("github_dark")
-cmd.colorscheme("oldworld")
+-- cmd.colorscheme("oldworld")
 -- cmd.colorscheme("vesper")
 -- api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
 --- Kanso ---
--- cmd.colorscheme("kanso")
--- api.nvim_set_hl(0, "FloatBorder", { fg = "#2D4F67" })
--- api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
--- api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
+cmd.colorscheme("kanso")
+api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
+api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
+api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
 -------------
 
 ----------------------------------------------------------------
@@ -93,20 +93,3 @@ opt.fillchars:append("eob:~") -- Show end of buffer
 
 opt.guicursor =
 	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250,sm:block-blinkwait175-blinkoff150-blinkon175"
-
--- Neovide settings
--- opt.guifont = "IBM Plex Mono:h15"
--- g.neovide_padding_top = 6
--- g.neovide_padding_bottom = 6
--- g.neovide_padding_right = 12
--- g.neovide_padding_left = 12
--- -- Helper function for transparency formatting
--- local alpha = function()
--- 	return string.format("%x", math.floor((255 * vim.g.transparency) or 0.8))
--- end
--- -- g:neovide_opacity should be 0 if you want to unify transparency of content and title bar.
--- g.neovide_opacity = 0.0
--- g.transparency = 0.9
--- g.neovide_background_color = "#14171d" .. alpha()
--- g.neovide_window_blurred = true
--- g.neovide_show_border = true
