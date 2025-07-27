@@ -1,0 +1,27 @@
+amixer get Master |grep % |awk '{print $5}'|sed 's/[^0-9]//g'
+
+gives output as:
+80
+80
+
+--
+
+awk -F"[][]" '/Left/ { print $2 }' <(amixer sget PCM)
+
+gives left channel output as:
+80%
+
+--
+
+amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]'
+
+gives both channel output as:
+80%
+80%
+
+--
+
+amixer sget PCM | awk -F"[][]" '/Left:/ { print $2 }'
+
+output:
+80%

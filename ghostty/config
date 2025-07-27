@@ -10,15 +10,17 @@ shell-integration-features = no-cursor
 mouse-scroll-multiplier = 0.69
 
 # -- Colors --
+# theme = Github-Dark-Default
 # theme = catppuccin-mocha
+# theme = rose-pine
 # theme = tokyonight_night
 # theme = nightfox
 # theme = terafox 
 # theme = duskfox 
-theme = oldworld
+# theme = oldworld
 # theme = vesper
 # theme = Kanagawa Dragon
-# theme = kanso-ink
+theme = kanso-ink
 # theme = kanso-zen
 
 # -- Appearance --

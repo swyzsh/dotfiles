@@ -1,53 +1,43 @@
 print("Welcome to SaturnVim!")
-
 require("saturn.remap")
-
 require("saturn.lazy")
 
-local cmd = vim.cmd
-local api = vim.api
-local opt = vim.opt
-
------------------------ Colorschemes ---------------------------
-
--- cmd.colorscheme("catppuccin")
--- cmd.colorscheme("rose-pine")
--- cmd.colorscheme("tokyonight")
--- cmd.colorscheme("duskfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
--- cmd.colorscheme("github_dark")
--- cmd.colorscheme("oldworld")
--- cmd.colorscheme("vesper")
--- api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
+------------------------------- Colorschemes -----------------------------------
+-- vim.cmd.colorscheme("catppuccin")
+-- vim.cmd.colorscheme("rose-pine")
+-- vim.cmd.colorscheme("tokyonight")
+-- vim.cmd.colorscheme("duskfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
+-- vim.cmd.colorscheme("github_dark")
+-- vim.cmd.colorscheme("oldworld")
+-- vim.cmd.colorscheme("vesper")
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
 --- Kanso ---
-cmd.colorscheme("kanso")
-api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
-api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
-api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
+vim.cmd.colorscheme("kanso")
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
 -------------
 
-----------------------------------------------------------------
+--------------------------------------------------------------------------------
 
-opt.number = true -- Enable absolute line numbers by default
--- Define an autocmd group for toggling relative line numbers
-local numbertoggle_group = api.nvim_create_augroup("numbertoggle", { clear = true })
--- Toggle relative line numbers when entering relevant modes
-api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
-	group = numbertoggle_group,
-	pattern = "*",
+vim.opt.number = true -- Enable absolute line numbers by default
+-- opt.relativenumber = true
+-- Toggle relative line numbers based on relevant modes
+local numbertoggle = vim.api.nvim_create_augroup("numbertoggle", {})
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+	group = numbertoggle,
 	callback = function()
-		if opt.number:get() and vim.fn.mode() ~= "i" then
-			opt.relativenumber = true
+		if vim.opt.nu:get() and vim.api.nvim_get_mode() ~= "i" then
+			vim.opt.relativenumber = true
 		end
 	end,
 })
--- Disable relative line numbers when leaving relative modes
-api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
-	group = numbertoggle_group,
-	pattern = "*",
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
+	group = numbertoggle,
 	callback = function()
-		if opt.number:get() then
-			opt.relativenumber = false
+		if vim.opt.nu:get() then
+			vim.opt.relativenumber = false
 		end
 	end,
 })
@@ -70,26 +60,26 @@ vim.diagnostic.config({
 -- Global border for every floating window
 vim.o.winborder = "rounded" -- Options: "single", "double", "rounded", "shadow"
 
-opt.tabstop = 2 -- Number of sapces that a tab represents
-opt.shiftwidth = 2 -- Number of spaces to use for each indentation level
-opt.expandtab = true -- Use spaces instead of tabs
-opt.autoindent = true -- Copy indent from current line when starting a new one
+vim.opt.tabstop = 2 -- Number of sapces that a tab represents
+vim.opt.shiftwidth = 2 -- Number of spaces to use for each indentation level
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.autoindent = true -- Copy indent from current line when starting a new one
 
-opt.ignorecase = true -- Ignore case when searching
-opt.smartcase = true -- Use case-sensitive if you include mixed case in your search
+vim.opt.ignorecase = true -- Ignore case when searching
+vim.opt.smartcase = true -- Use case-sensitive if you include mixed case in your search
 
-opt.cursorline = true
-opt.termguicolors = true
-opt.background = "dark" -- Preference for colorschemes that have both light & dark mode
-opt.signcolumn = "yes" -- Show sign column so that text doesn't shift
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.background = "dark" -- Preference for colorschemes that have both light & dark mode
+vim.opt.signcolumn = "yes" -- Show sign column so that text doesn't shift
 
-opt.splitright = true -- Split vertical window to the right
-opt.splitbelow = true -- Split horizontal window to the bottom
+vim.opt.splitright = true -- Split vertical window to the right
+vim.opt.splitbelow = true -- Split horizontal window to the bottom
 
-opt.clipboard = "unnamedplus" -- Use system clipboard
-opt.swapfile = false -- Turn off swapfile creation, not recommended / save often / use autosave
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard
+vim.opt.swapfile = false -- Turn off swapfile creation, not recommended / save often / use autosave
 
-opt.fillchars:append("eob:~") -- Show end of buffer
+vim.opt.fillchars:append("eob:~") -- Show end of buffer
 
-opt.guicursor =
+vim.opt.guicursor =
 	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250,sm:block-blinkwait175-blinkoff150-blinkon175"

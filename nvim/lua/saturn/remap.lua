@@ -49,15 +49,10 @@ vim.keymap.set(
 ------------
 -- Search --
 ------------
--- hlsearch is built in vim use shift+3 "#" to search for anything under cursor or selected in file --
--- "n" moves backwards; shift+n moves forwards --
--- Following are keybinds to close hlsearch --
-vim.keymap.set("n", "j", "j:nohlsearch<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "k", "k:nohlsearch<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "h", "h:nohlsearch<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "l", "l:nohlsearch<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "w", "w:nohlsearch<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "b", "b:nohlsearch<CR>", { noremap = true, silent = true })
+-- hlsearch is built in vim use shift+3 "#" to search for anything under cursor or selected in file
+-- "n" moves backwards; shift+n moves forwards
+-- Following keybind is shorthand for closing hlsearch
+vim.keymap.set("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
 
 ----------------
 -- Formatting --
