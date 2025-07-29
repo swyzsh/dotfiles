@@ -1,13 +1,14 @@
 return {
 	{
 		"echasnovski/mini.icons",
+		event = "VeryLazy",
 		version = false,
 		opts = {
 			style = "glyph",
 		},
 		lazy = true,
 		specs = {
-			{ "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+			{ "nvim-tree/nvim-web-devicons", enabled = true, optional = true },
 		},
 		init = function()
 			package.preload["nvim-web-devicons"] = function()

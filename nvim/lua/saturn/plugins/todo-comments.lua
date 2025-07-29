@@ -1,5 +1,6 @@
 return {
 	"folke/todo-comments.nvim",
+	event = "BufReadPost",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	-- Todo Comments start with the comment keyword, keyword, then a colon ":"
 	-- Acceptable commands for Todo Comments:

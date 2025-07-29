@@ -20,8 +20,8 @@ mouse-scroll-multiplier = 0.69
 # theme = oldworld
 # theme = vesper
 # theme = Kanagawa Dragon
-theme = kanso-ink
-# theme = kanso-zen
+# theme = kanso-ink
+theme = kanso-zen
 
 # -- Appearance --
 cursor-style = block

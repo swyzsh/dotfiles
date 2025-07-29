@@ -23,9 +23,9 @@ return {
 			overrides = function(colors) -- add/modify highlights
 				return {}
 			end,
-			theme = "ink", -- Load "zen" theme | Zen | Ink | Mist | Pearl
+			theme = "zen", -- Load "zen" theme | Zen | Ink | Mist | Pearl
 			background = { -- map the value of 'background' option to a theme
-				dark = "ink", -- try "ink" !
+				dark = "zen", -- try "ink" !
 				light = "pearl", -- try "mist" !
 			},
 		})
