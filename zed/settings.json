@@ -1,0 +1,82 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "buffer_line_height": "standard",
+  "relative_line_numbers": true,
+  "scrollbar": { "show": "auto" },
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "vertical_scroll_margin": 5,
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always"
+  },
+
+  /////// Typography //////
+  // "ui_font_family": "JetBrainsMono Nerd Font Mono",
+  // "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "ui_font_family": "Zed Plex Mono",
+  "buffer_font_family": "Zed Plex Mono",
+  "ui_font_size": 15,
+  "buffer_font_size": 15,
+  "buffer_font_features": { "calt": false },
+
+  /////// Appearance ///////
+  "theme": {
+    "mode": "system",
+    "light": "Kanso Pearl",
+    "dark": "Kanso Ink"
+  },
+  "icon_theme": "Zed (Default)",
+  // "experimental.theme_overrides": {
+  //   "accents": [
+  //     "#cbb0f766",
+  //     "#b9c3fc66",
+  //     "#86caee66",
+  //     "#aee1b266",
+  //     "#f0e0bd66",
+  //     "#f1ba9d66",
+  //     "#eb9ab766"
+  //   ],
+  //   "background.appearance": "blurred",
+  // "border": "#00000000"
+  //   "border.variant": "#11111b",
+  //   "background": "#00000000",
+  //   "editor.background": "#1e1e2e80"
+  // },
+
+  "tabs": {
+    "file_icons": true
+  },
+
+  ////// Editor Completions, Snippets, Actions, Diagnostics //////
+  "snippet_sort_order": "inline", // Snippets completions: top, inline, bottom
+  "show_completions_on_input": true, // Show completions while typing
+  "show_completion_documentation": true, // Show documentation in completions
+  "auto_signature_help": false, // Show method signatures inside parentheses
+  // Whether to show the signature help after completion or a bracket pair inserted.
+  // If `auto_signature_help` is enabled, this setting will be treated as enabled also.
+  "show_signature_help_after_edits": false,
+  // Whether to show code action button at start of buffer line.
+  "inline_code_actions": true,
+  // Which level to use to filter out diagnostics displayed in the editor:
+  "diagnostics_max_severity": null, // off, error, warning, info, hint, null (all)
+  // How to render LSP `textDocument/documentColor` colors in the editor.
+  "lsp_document_colors": "inlay", // none, inlay, border, background
+
+  ////// Edit Predictions //////
+  "edit_predictions": {
+    "mode": "eager", // Automatically show (eager) or hold-alt (subtle)
+    "enabled_in_text_threads": true // Show/hide predictions in agent text threads
+  },
+  "show_edit_predictions": true, // Show/hide predictions in editor
+  "features": {
+    "edit_prediction_provider": "supermaven"
+  }
+}

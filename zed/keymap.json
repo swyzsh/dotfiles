@@ -1,0 +1,126 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+
+// TODO: Set default keybinds to null and replace all keybinds with custom
+
+// TODO To configure:
+// 1. "bind": "project_symbols::Toggle",
+// 2. "bind": "debug_panel::ToggleFocus",
+
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-e": "workspace::ToggleLeftDock",
+      "cmd-t": "workspace::ToggleBottomDock",
+      "cmd-f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-s": "workspace::Save"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-d": "pane::SplitRight",
+      "cmd-shift-d": "pane::SplitDown"
+    }
+  },
+  {
+    "context": "Workspace || Editor",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "tab": "pane::ActivateNextItem",
+      "shift-tab": "pane::ActivatePreviousItem"
+      // "space f f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Disable binds //
+      "ctrl-e": ["workspace::SendKeystrokes", "6 ctrl-e"], // Scroll down multiple lines instead of default single line
+      "ctrl-y": ["workspace::SendKeystrokes", "6 ctrl-y"] // Scroll up multiple lines instead of default single line
+    }
+  },
+  // Disable Binds //
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-b": null, // disable toggle left dock
+      "cmd-j": null, // disable toggle bottom dock
+      "cmd-p": null // disable file_finder::Toggle
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-;": null, // disable toggle line numbers
+      "cmd-/": null, // disable toggle comments (replaced by vim's gcc)
+      "cmd-d": null, // disable multi-cursor select, replaced with vim motions -> g l
+      "cmd-k cmd-d": null, // disable multi-cursor select, replaced with vim motions -> g l
+      "ctrl-cmd-d": null, // disable multi-cursor select, replaced with vim motions -> g L
+      "cmd-k ctrl-cmd-d": null // disable multi-cursor select, replaced with vim motions -> g L
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-e": null, // disable buffer_search::Deploy
+      "cmd-f": null // disable buffer_search::Deploy
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-f": null // disable project_search::ToggleFocus
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": null, // disable vim focus directions
+      "ctrl-j": null,
+      "ctrl-k": null,
+      "ctrl-l": null,
+      "space t": null // disable workspace::ToggleBottomDock
+    }
+  },
+  {
+    "context": "Workspace || Editor",
+    "bindings": {
+      "cmd-shift-e": null // disable project_panel::ToggleFocus
+    }
+  },
+  {
+    "context": "BufferSearchBar",
+    "bindings": {
+      "cmd-f": null // disable search::FocusSearch
+    }
+  },
+  {
+    "context": "vim_mode == insert || BufferSearchBar || multibuffer",
+    "bindings": {
+      "space e": null, // disable workspace::ToggleLeftDock
+      "space t": null, // disable workspace::ToggleBottomDock
+      "space f f": null // disable file_finder::Toggle
+    }
+  }
+  ///////////////////
+]
