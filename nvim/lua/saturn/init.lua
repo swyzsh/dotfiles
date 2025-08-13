@@ -3,7 +3,7 @@ require("saturn.remap")
 require("saturn.lazy")
 
 ------------------------------- Colorschemes -----------------------------------
--- vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("rose-pine")
 -- vim.cmd.colorscheme("tokyonight")
 -- vim.cmd.colorscheme("duskfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
@@ -13,10 +13,10 @@ require("saturn.lazy")
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
 --- Kanso ---
-vim.cmd.colorscheme("kanso")
-vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
-vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
+-- vim.cmd.colorscheme("kanso")
+-- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
+-- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
+-- vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
 -------------
 
 --------------------------------------------------------------------------------
@@ -44,7 +44,14 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 
 vim.diagnostic.config({
 	virtual_text = false, -- Enable/Disable Inline virtual text (annoying diagnostic besides code)
-	signs = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.HINT] = "󰠠",
+			[vim.diagnostic.severity.INFO] = "",
+		},
+	},
 	underline = true,
 	update_in_insert = false,
 	severity_sort = true,
@@ -83,3 +90,10 @@ vim.opt.fillchars:append("eob:~") -- Show end of buffer
 
 vim.opt.guicursor =
 	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250,sm:block-blinkwait175-blinkoff150-blinkon175"
+
+-- vim.g.neovide_opacity = 0.8
+-- vim.g.neovide_window_blurred = true
+-- -- vim.g.neovide_refresh_rate = 165
+-- vim.g.neovide_remember_window_size = true
+-- vim.g.neovide_show_border = true
+-- vim.g.neovide_scroll_animation_length = 0.075

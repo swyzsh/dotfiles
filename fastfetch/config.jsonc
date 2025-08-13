@@ -22,27 +22,37 @@
         {
             "type": "kernel",
             "key": "KER ",
-            "keyColor": "32",
+            "keyColor": "31",
         },
         {
             "type": "packages",
             "key": "PKG ",
-            "keyColor": "33",
+            "keyColor": "32",
         },
         {
             "type": "shell",
             "key": "SH  ",
-            "keyColor": "34",
+            "keyColor": "33",
         },
         {
             "type": "terminal",
             "key": "TER ",
-            "keyColor": "35",
+            "keyColor": "33",
         },
         {
             "type": "wm",
             "key": "WM  ",
             "keyColor": "36",
+        },
+        {
+            "type": "uptime",
+            "key": "UP  ",
+            "keyColor": "35", 
+        },
+        {
+            "type": "memory",
+            "key": "MEM ",
+            "keyColor": "35"
         },
         "break",
     ]

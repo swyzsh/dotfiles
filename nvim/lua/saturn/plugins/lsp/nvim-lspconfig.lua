@@ -3,80 +3,88 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"mason-org/mason.nvim",
+		"mason.nvim",
+		{ "mason-org/mason-lspconfig.nvim", config = function() end },
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
+		local mason_lspconfig = require("mason-lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
-
-		local function setup_if_installed(mason_name, lsp_name, config)
-			local mason_registry = require("mason-registry")
-			if mason_registry.is_installed(mason_name) then
-				local server_config = vim.tbl_deep_extend("force", { capabilities = capabilities }, config or {})
-				lspconfig[lsp_name].setup(server_config)
-			end
-		end
-
-		setup_if_installed("css-lsp", "cssls", {
-			settings = {
-				css = {
-					lint = {
-						unknownAtRules = "ignore",
-					},
-				},
-				scss = {
-					lint = {
-						unknownAtRules = "ignore",
-					},
-				},
-				less = {
-					lint = {
-						unknownAtRules = "ignore",
+		local server_configs = {
+			lua_ls = {
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+						completion = {
+							callSnippet = "Replace",
+						},
 					},
 				},
 			},
-		})
+			cssls = {
 
-		setup_if_installed("lua-language-server", "lua_ls", {
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
+				settings = {
+					css = {
+						lint = {
+							unknownAtRules = "ignore",
+						},
 					},
-					completion = {
-						callSnippet = "Replace",
+					scss = {
+						lint = {
+							unknownAtRules = "ignore",
+						},
+					},
+					less = {
+						lint = {
+							unknownAtRules = "ignore",
+						},
 					},
 				},
 			},
-		})
-
-		-- Additional servers with basic setup
-		local server_map = {
-			["bash-language-server"] = "bashls",
-			["docker-compose-language-service"] = "docker_compose_language_service",
-			["dockerfile-language-server"] = "dockerls",
-			["emmet-ls"] = "emmet_ls",
-			["eslint-lsp"] = "eslint",
-			["html-lsp"] = "html",
-			["julia-lsp"] = "julials",
-			["marksman"] = "marksman",
-			["prisma-language-server"] = "prismals",
-			["pyright"] = "pyright",
-			["nomicfoundation-solidity-language-server"] = "solidity_ls_nomicfoundation",
-			["rust-analyzer"] = "rust_analyzer",
-			["tailwindcss-language-server"] = "tailwindcss",
-			["vtsls"] = "vtsls",
 		}
 
-		for mason_name, lsp_name in pairs(server_map) do
-			setup_if_installed(mason_name, lsp_name)
+		local function setup_server(server_name)
+			local server_config =
+				vim.tbl_deep_extend("force", { capabilities = capabilities }, server_configs[server_name] or {})
+
+			lspconfig[server_name].setup(server_config)
+		end
+
+		mason_lspconfig.setup({
+			ensure_installed = {
+				"bashls",
+				"cssls",
+				"docker_compose_language_service",
+				"dockerls",
+				-- "emmet_ls",
+				"eslint",
+				"html",
+				"julials",
+				"lua_ls",
+				"marksman",
+				"prismals",
+				"pyright",
+				"rust_analyzer",
+				"solidity_ls_nomicfoundation",
+				"tailwindcss",
+				"vtsls",
+			},
+			handlers = {
+				-- Default handler for servers without custom config
+				function(server_name)
+					setup_server(server_name)
+				end,
+			},
+		})
+
+		local additional_servers = {}
+		for _, server in ipairs(additional_servers) do
+			setup_server(server)
 		end
 	end,
 }

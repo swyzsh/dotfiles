@@ -5,8 +5,8 @@ macos-option-as-alt = true
 font-size = 15
 
 # -- Appearance --
-background-opacity = 0.90
-background-blur = 48
+# background-opacity = 0.90
+# background-blur = 48
 macos-icon = "official"
 macos-titlebar-style = "transparent"
 window-height = 50

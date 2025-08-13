@@ -6,10 +6,22 @@ return {
 		name = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
-				flavour = "mocha", -- Available variants "latte", "frappe", "machiato", "mocha"
-				show_end_of_buffer = true,
+				flavour = "mocha", -- latte, frappe, macchiato, mocha
 				transparent_background = true,
+				float = {
+					transparent = true,
+					solid = false, -- use solid styling for floating windows, see |winborder|
+				},
+				show_end_of_buffer = true,
 				term_colors = true,
+				dim_inactive = {
+					enabled = false,
+					shade = "dark",
+					percentage = 0.15,
+				},
+				no_italic = false,
+				no_bold = true,
+				no_underline = false,
 				styles = {
 					comments = { "italic" },
 					conditionals = { "italic" },
@@ -25,26 +37,26 @@ return {
 					operators = {},
 					-- miscs = {}, -- Uncomment to turn off hard-coded styles
 				},
+				color_overrides = {
+					mocha = {},
+				},
 				custom_highlights = function(colors)
 					return {
 						-- Comment = { fg = colors.flamingo },
-						-- CursorLineNr = { fg = colors.peach },
+						CursorLineNr = { fg = colors.peach },
 						-- CursorLineNr = { fg = colors.blue },
 					}
 				end,
+				default_integrations = true,
+				auto_integrations = false,
 				integrations = {
-					aerial = true,
-					alpha = true,
-					blink_cmp = true,
 					cmp = true,
-					dashboard = true,
-					flash = true,
-					grug_far = true,
+					dropbar = {
+						enabled = true,
+						color_mode = true,
+					},
 					gitsigns = true,
-					headlines = true,
-					illuminate = true,
 					indent_blankline = { enabled = true },
-					leap = true,
 					lsp_trouble = true,
 					mason = true,
 					markdown = true,
@@ -59,13 +71,9 @@ return {
 						},
 					},
 					navic = { enabled = true, custom_bg = "lualine" },
-					neotest = true,
-					neotree = true,
 					noice = true,
 					notify = true,
-					semantic_tokens = true,
 					snacks = true,
-					telescope = true,
 					treesitter = true,
 					treesitter_context = true,
 					which_key = true,
