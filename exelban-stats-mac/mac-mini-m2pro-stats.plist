@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Battery_state</key>
+	<false/>
+	<key>CPU_mini_color</key>
+	<string>monochrome</string>
+	<key>CPU_updateInterval</key>
+	<integer>2</integer>
+	<key>CPU_updateTopInterval</key>
+	<integer>2</integer>
+	<key>Clock_state</key>
+	<false/>
+	<key>CombinedModules</key>
+	<false/>
+	<key>CombinedModules_spacing</key>
+	<string>none</string>
+	<key>Disk_barChart_position</key>
+	<integer>3</integer>
+	<key>Disk_label_position</key>
+	<integer>2</integer>
+	<key>Disk_memory_position</key>
+	<integer>5</integer>
+	<key>Disk_mini_position</key>
+	<integer>0</integer>
+	<key>Disk_networkChart_position</key>
+	<integer>1</integer>
+	<key>Disk_pieChart_position</key>
+	<integer>4</integer>
+	<key>Disk_speed_position</key>
+	<integer>6</integer>
+	<key>Disk_state</key>
+	<false/>
+	<key>Disk_text_position</key>
+	<integer>7</integer>
+	<key>Disk_widget</key>
+	<string>mini</string>
+	<key>GPU_state</key>
+	<false/>
+	<key>GPU_updateInterval</key>
+	<integer>2</integer>
+	<key>LaunchAtLoginNext</key>
+	<true/>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{800, 448}</string>
+	<key>NSNavPanelExpandedStateForSaveMode</key>
+	<true/>
+	<key>NSStatusItem Preferred Position CPU_mini</key>
+	<real>698</real>
+	<key>NSStatusItem Preferred Position Network_speed</key>
+	<real>580</real>
+	<key>NSStatusItem Preferred Position RAM_mini</key>
+	<real>651</real>
+	<key>NSToolbar Configuration eu.exelban.Stats.Settings.Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<true/>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>905 654 800 448 0 0 2560 1415 </string>
+	<key>Network_base</key>
+	<string>byte</string>
+	<key>Network_downloadColor</key>
+	<string>cyan</string>
+	<key>Network_label_position</key>
+	<integer>2</integer>
+	<key>Network_networkChart_position</key>
+	<integer>3</integer>
+	<key>Network_publicIP</key>
+	<false/>
+	<key>Network_reader</key>
+	<string>interface</string>
+	<key>Network_speed_downloadColor</key>
+	<string>cyan</string>
+	<key>Network_speed_icon</key>
+	<string>arrows</string>
+	<key>Network_speed_iconAlignment</key>
+	<string>right</string>
+	<key>Network_speed_iconColor</key>
+	<string>constant</string>
+	<key>Network_speed_mode</key>
+	<string>twoRows</string>
+	<key>Network_speed_monochrome</key>
+	<false/>
+	<key>Network_speed_position</key>
+	<integer>0</integer>
+	<key>Network_speed_uploadColor</key>
+	<string>pink</string>
+	<key>Network_speed_value</key>
+	<true/>
+	<key>Network_speed_valueAlignment</key>
+	<string>center</string>
+	<key>Network_speed_valueColor</key>
+	<string>none</string>
+	<key>Network_state_position</key>
+	<integer>4</integer>
+	<key>Network_text_position</key>
+	<integer>1</integer>
+	<key>Network_uploadColor</key>
+	<string>pink</string>
+	<key>Network_widget</key>
+	<string>speed</string>
+	<key>RAM_updateInterval</key>
+	<integer>2</integer>
+	<key>RAM_updateTopInterval</key>
+	<integer>2</integer>
+	<key>Sensors_barChart_position</key>
+	<integer>1</integer>
+	<key>Sensors_fanValue</key>
+	<string>percentage</string>
+	<key>Sensors_hid</key>
+	<false/>
+	<key>Sensors_label_position</key>
+	<integer>2</integer>
+	<key>Sensors_mini_position</key>
+	<integer>3</integer>
+	<key>Sensors_sensor</key>
+	<string>Tm0P</string>
+	<key>Sensors_stack_position</key>
+	<integer>0</integer>
+	<key>Sensors_state</key>
+	<false/>
+	<key>Sensors_widget</key>
+	<string>sensors</string>
+	<key>dockIcon</key>
+	<false/>
+	<key>runAtLoginInitialized</key>
+	<true/>
+	<key>sensor_Average CPU</key>
+	<false/>
+	<key>sensor_Average GPU</key>
+	<false/>
+	<key>sensor_CPU Power</key>
+	<false/>
+	<key>sensor_F0Ac</key>
+	<false/>
+	<key>sensor_Hottest GPU</key>
+	<false/>
+	<key>sensor_Tg0f</key>
+	<false/>
+	<key>sensor_Tg0j</key>
+	<false/>
+	<key>sensor_Tm0P</key>
+	<true/>
+	<key>sensor_Total System Consumption</key>
+	<false/>
+	<key>sensor_VD0R</key>
+	<false/>
+	<key>setupProcess</key>
+	<true/>
+	<key>support_ts</key>
+	<integer>1753638790</integer>
+	<key>telemetry</key>
+	<false/>
+	<key>temperature_units</key>
+	<string>celsius</string>
+	<key>update-interval</key>
+	<string>Never</string>
+	<key>updater_check_ts</key>
+	<integer>1750378624</integer>
+	<key>version</key>
+	<string>2.11.45</string>
+</dict>
+</plist>
