@@ -9,10 +9,10 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr>", { desc = "Save fil
 -- Window Management --
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split Window Vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split Window Horizontally" })
-vim.keymap.set("n", "<C-M-h>", "<C-w><", { desc = "Decrease Split Width" })
-vim.keymap.set("n", "<C-M-l>", "<C-w>>", { desc = "Increase Split Width" })
-vim.keymap.set("n", "<C-M-k>", "<C-w>-", { desc = "Decrease Split Height" })
-vim.keymap.set("n", "<C-M-j>", "<C-w>+", { desc = "Increase Split Height" })
+vim.keymap.set("n", "<leader>s,", "<C-w><", { desc = "Decrease Split Width" })
+vim.keymap.set("n", "<leader>s.", "<C-w>>", { desc = "Increase Split Width" })
+vim.keymap.set("n", "<leader>s-", "<C-w>-", { desc = "Decrease Split Height" })
+vim.keymap.set("n", "<leader>s=", "<C-w>+", { desc = "Increase Split Height" })
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make Splits Equal size" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close Current Split" })
 

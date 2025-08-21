@@ -1,24 +1,30 @@
 print("Welcome to SaturnVim!")
-require("saturn.remap")
+if not vim.g.vscode then
+  require("saturn.remap")
+end
+if vim.g.vscode then
+  require("saturn.remap-vsc")
+end
 require("saturn.lazy")
 
 ------------------------------- Colorschemes -----------------------------------
-vim.cmd.colorscheme("catppuccin")
--- vim.cmd.colorscheme("rose-pine")
--- vim.cmd.colorscheme("tokyonight")
--- vim.cmd.colorscheme("duskfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
--- vim.cmd.colorscheme("github_dark")
--- vim.cmd.colorscheme("oldworld")
--- vim.cmd.colorscheme("vesper")
--- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
+if not vim.g.vscode then
+  -- vim.cmd.colorscheme("catppuccin")
+  -- vim.cmd.colorscheme("rose-pine")
+  -- vim.cmd.colorscheme("tokyonight")
+  -- vim.cmd.colorscheme("duskfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
+  -- vim.cmd.colorscheme("github_dark")
+  -- vim.cmd.colorscheme("oldworld")
+  -- vim.cmd.colorscheme("vesper")
+  -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
---- Kanso ---
--- vim.cmd.colorscheme("kanso")
--- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
--- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
--- vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
--------------
-
+  --- Kanso ---
+  vim.cmd.colorscheme("kanso")
+  vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
+  vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
+  vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
+  -------------
+end
 --------------------------------------------------------------------------------
 
 vim.opt.number = true -- Enable absolute line numbers by default
@@ -26,42 +32,42 @@ vim.opt.number = true -- Enable absolute line numbers by default
 -- Toggle relative line numbers based on relevant modes
 local numbertoggle = vim.api.nvim_create_augroup("numbertoggle", {})
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
-	group = numbertoggle,
-	callback = function()
-		if vim.opt.nu:get() and vim.api.nvim_get_mode() ~= "i" then
-			vim.opt.relativenumber = true
-		end
-	end,
+  group = numbertoggle,
+  callback = function()
+    if vim.opt.nu:get() and vim.api.nvim_get_mode() ~= "i" then
+      vim.opt.relativenumber = true
+    end
+  end,
 })
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
-	group = numbertoggle,
-	callback = function()
-		if vim.opt.nu:get() then
-			vim.opt.relativenumber = false
-		end
-	end,
+  group = numbertoggle,
+  callback = function()
+    if vim.opt.nu:get() then
+      vim.opt.relativenumber = false
+    end
+  end,
 })
 
 vim.diagnostic.config({
-	virtual_text = false, -- Enable/Disable Inline virtual text (annoying diagnostic besides code)
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.HINT] = "󰠠",
-			[vim.diagnostic.severity.INFO] = "",
-		},
-	},
-	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
-	float = {
-		-- border = "rounded", -- Options: "single", "double", "rounded", "shadow"
-		focusable = true,
-		source = true, -- Show source of diagnostic
-		header = "", -- Optional: Add a header
-		-- prefix = "", -- Optional: Remove default prefix
-	},
+  virtual_text = false, -- Enable/Disable Inline virtual text (annoying diagnostic besides code)
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.HINT] = "󰠠",
+      [vim.diagnostic.severity.INFO] = "",
+    },
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    -- border = "rounded", -- Options: "single", "double", "rounded", "shadow"
+    focusable = true,
+    source = true, -- Show source of diagnostic
+    header = "", -- Optional: Add a header
+    -- prefix = "", -- Optional: Remove default prefix
+  },
 })
 
 -- Global border for every floating window
@@ -89,7 +95,7 @@ vim.opt.swapfile = false -- Turn off swapfile creation, not recommended / save o
 vim.opt.fillchars:append("eob:~") -- Show end of buffer
 
 vim.opt.guicursor =
-	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250,sm:block-blinkwait175-blinkoff150-blinkon175"
+  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- vim.g.neovide_opacity = 0.8
 -- vim.g.neovide_window_blurred = true

@@ -51,8 +51,8 @@ return {
 						end,
 						-- color = { fg = oldworld_p.orange, gui = "bold" }, -- Macro indicator Olworld Theme
 						-- color = { fg = tokyonight_p.red, gui = "bold" }, -- Macro indicator Tokyonight Theme
-						color = { fg = "#f38ba8", gui = "bold" }, -- Macro indicator Catppuccin Theme
-						-- color = { fg = "#C34043", gui = "bold" }, -- Macro indicator Kanso Theme
+						-- color = { fg = "#f38ba8", gui = "bold" }, -- Macro indicator Catppuccin Theme
+						color = { fg = "#C34043", gui = "bold" }, -- Macro indicator Kanso Theme
 					},
 				},
 				lualine_x = {
