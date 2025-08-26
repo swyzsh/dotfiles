@@ -15,28 +15,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {
-    import = "saturn.plugins.themes",
-    cond = function()
-      return not vim.g.vscode
-    end,
-  },
-  {
-    import = "saturn.plugins.linting-formatting",
-    cond = function()
-      return not vim.g.vscode
-    end,
-  },
-  {
-    import = "saturn.plugins.lsp",
-    cond = function()
-      return not vim.g.vscode
-    end,
-  },
-  {
-    import = "saturn.plugins",
-    cond = function()
-      return not vim.g.vscode
-    end,
-  },
+  { import = "saturn.plugins.themes" },
+  { import = "saturn.plugins.linting-formatting" },
+  { import = "saturn.plugins.lsp" },
+  { import = "saturn.plugins" },
 })

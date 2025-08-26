@@ -75,6 +75,7 @@ return {
         border = "rounded",
         winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
         draw = {
+          cursorline_priority = 11000,
           treesitter = { "lsp" },
           -- nvim-cmp style menu
           -- columns = {
@@ -85,11 +86,18 @@ return {
       },
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 20,
+        auto_show_delay_ms = 500,
+        update_delay_ms = 50,
         treesitter_highlighting = true,
         window = { border = "rounded" },
       },
-      ghost_text = { enabled = true },
+      ghost_text = {
+        enabled = true,
+        show_with_selection = true,
+        show_without_selection = false,
+        show_with_menu = true,
+        show_without_menu = true,
+      },
     },
 
     snippets = { preset = "default" },

@@ -5,59 +5,18 @@ return {
     "mason-org/mason.nvim",
     "mason.nvim",
     { "mason-org/mason-lspconfig.nvim", config = function() end },
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
-
-    -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-    local server_configs = {
-      lua_ls = {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
-        },
-      },
-      cssls = {
-
-        settings = {
-          css = {
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-          scss = {
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-          less = {
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-        },
-      },
-    }
-
-    local function setup_server(server_name)
-      local server_config =
-        vim.tbl_deep_extend("force", { capabilities = capabilities }, server_configs[server_name] or {})
-
-      lspconfig[server_name].setup(server_config)
-    end
+    local lspconfig = require("lspconfig").util.default_config
+    lspconfig.capabilities = vim.tbl_deep_extend("force", lspconfig.capabilities, capabilities)
 
     mason_lspconfig.setup({
+      ---@type string[]
       ensure_installed = {
         "bashls",
         "cssls",
@@ -75,18 +34,48 @@ return {
         -- "solidity_ls_nomicfoundation",
         "tailwindcss",
         "vtsls",
+        "yamlls",
       },
-      handlers = {
-        -- Default handler for servers without custom config
-        function(server_name)
-          setup_server(server_name)
-        end,
+
+      ---@type boolean | string[] | { exclude: string[] }
+      automatic_enable = {
+        exclude = {},
       },
     })
 
-    local additional_servers = {}
-    for _, server in ipairs(additional_servers) do
-      setup_server(server)
-    end
+    vim.lsp.config("lua_ls", {
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+          completion = {
+            callSnippet = "Replace",
+          },
+        },
+      },
+    })
+
+    vim.lsp.config("cssls", {
+      capabilities = capabilities,
+      settings = {
+        css = {
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+        scss = {
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+        less = {
+          lint = {
+            unknownAtRules = "ignore",
+          },
+        },
+      },
+    })
   end,
 }

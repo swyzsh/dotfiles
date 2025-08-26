@@ -1,31 +1,34 @@
 print("Welcome to SaturnVim!")
-if not vim.g.vscode then
-  require("saturn.remap")
-end
-if vim.g.vscode then
-  require("saturn.remap-vsc")
-end
+require("saturn.remap")
 require("saturn.lazy")
 
 ------------------------------- Colorschemes -----------------------------------
-if not vim.g.vscode then
-  -- vim.cmd.colorscheme("catppuccin")
-  -- vim.cmd.colorscheme("rose-pine")
-  -- vim.cmd.colorscheme("tokyonight")
-  -- vim.cmd.colorscheme("duskfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
-  -- vim.cmd.colorscheme("github_dark")
-  -- vim.cmd.colorscheme("oldworld")
-  -- vim.cmd.colorscheme("vesper")
-  -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
+-- vim.cmd.colorscheme("catppuccin")
+-- vim.cmd.colorscheme("rose-pine")
+-- vim.cmd.colorscheme("tokyonight")
+-- vim.cmd.colorscheme("duskfox") -- Nightfox flavors: nightfox | dayfox | dawnfox | duskfox | nordfox | terafox | carbonfox
+-- vim.cmd.colorscheme("github_dark")
+-- vim.cmd.colorscheme("oldworld")
+-- vim.cmd.colorscheme("vesper")
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FAA356" })
 
-  --- Kanso ---
-  vim.cmd.colorscheme("kanso")
-  vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
-  vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
-  vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
-  -------------
-end
+--- Kanso ---
+vim.cmd.colorscheme("kanso")
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
+-------------
 --------------------------------------------------------------------------------
+
+-- vim.lsp.config("lua_ls", {
+--   settings = {
+--     Lua = {
+--       diagnostics = {
+--         globals = { "vim" },
+--       },
+--     },
+--   },
+-- })
 
 vim.opt.number = true -- Enable absolute line numbers by default
 -- opt.relativenumber = true
