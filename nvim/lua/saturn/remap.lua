@@ -6,6 +6,10 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr>", { desc = "Save fil
 vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr>", { desc = "Save file" })
 -- vim.keymap.set("n", "<leader>w", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- Scrolling
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-e>", "3<C-e>")
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-y>", "3<C-y>")
+
 -- Window Management --
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split Window Vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split Window Horizontally" })

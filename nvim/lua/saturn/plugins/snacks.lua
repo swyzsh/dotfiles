@@ -117,7 +117,24 @@ return {
       style = "compact",
     },
     quickfile = { enabled = true },
-    scroll = { enabled = false },
+
+    ---@class snacks.scroll.Config
+    ---@field animate snacks.animate.Config|{}
+    ---@field animate_repeat snacks.animate.Config|{}|{delay:number}
+    scroll = {
+      enabled = false,
+      animate = {
+        duration = { step = 25, total = 200 }, -- default step = 15, total = 250
+        easing = "linear",
+      },
+      -- faster animation when repeating scroll after delay
+      animate_repeat = {
+        delay = 100, -- delay in ms before using the repeat animation
+        duration = { step = 6, total = 48 }, -- default step = 5, total = 50
+        easing = "linear",
+      },
+    },
+
     statuscolumn = { enabled = true },
     ---@type table<string, snacks.win.Config>
     styles = {

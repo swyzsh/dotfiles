@@ -100,9 +100,30 @@ vim.opt.fillchars:append("eob:~") -- Show end of buffer
 vim.opt.guicursor =
   "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250,sm:block-blinkwait175-blinkoff150-blinkon175"
 
--- vim.g.neovide_opacity = 0.8
--- vim.g.neovide_window_blurred = true
--- -- vim.g.neovide_refresh_rate = 165
--- vim.g.neovide_remember_window_size = true
--- vim.g.neovide_show_border = true
--- vim.g.neovide_scroll_animation_length = 0.075
+---------------------------
+-- Neovide Settings --
+---------------------------
+
+vim.g.neovide_refresh_rate = 165 -- match this to device limit
+vim.g.neovide_remember_window_size = true
+vim.g.neovide_show_border = true
+vim.g.neovide_opacity = 1.0 -- default: 0.8
+vim.g.neovide_window_blurred = false
+vim.g.neovide_floating_blur_amount_x = 16.0 -- default: 2.0
+vim.g.neovide_floating_blur_amount_y = 16.0 -- default: 2.0
+vim.g.neovide_padding_top = 12
+vim.g.neovide_padding_bottom = 6
+vim.g.neovide_padding_right = 12
+vim.g.neovide_padding_left = 12
+vim.g.neovide_scroll_animation_length = 0.15 -- default: 0.3
+vim.g.neovide_cursor_animation_length = 0.075 -- default: 0.150
+vim.g.neovide_cursor_short_animation_length = 0.02 -- default: 0.04
+vim.g.neovide_cursor_trail_size = 0.5 -- range: 0.0 to 1.0 | default: 1.0
+vim.g.neovide_cursor_antialiasing = true
+vim.g.neovide_cursor_animate_in_insert_mode = true
+vim.g.neovide_cursor_animate_command_line = true
+vim.g.neovide_cursor_vfx_mode = "" -- empty "", railgun, torpedo, pixiedust, sonicboom, ripple, wireframe
+vim.g.neovide_profiler = false
+vim.g.neovide_input_macos_option_key_is_meta = "none"
+
+---------------------------

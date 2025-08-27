@@ -48,7 +48,8 @@ return {
       settings = {
         Lua = {
           diagnostics = {
-            globals = { "vim" },
+            globals = { "vim", "Snacks" },
+            disable = { "undefined-doc-name" },
           },
           completion = {
             callSnippet = "Replace",
