@@ -1,6 +1,7 @@
 print("Welcome to SaturnVim!")
 require("saturn.remap")
 require("saturn.lazy")
+require("luasnip.loaders.from_vscode").lazy_load()
 
 ------------------------------- Colorschemes -----------------------------------
 -- vim.cmd.colorscheme("catppuccin")
@@ -20,19 +21,8 @@ vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
 -------------
 --------------------------------------------------------------------------------
 
--- vim.lsp.config("lua_ls", {
---   settings = {
---     Lua = {
---       diagnostics = {
---         globals = { "vim" },
---       },
---     },
---   },
--- })
-
-vim.opt.number = true -- Enable absolute line numbers by default
--- opt.relativenumber = true
 -- Toggle relative line numbers based on relevant modes
+vim.opt.number = true -- default: absolute line numbers
 local numbertoggle = vim.api.nvim_create_augroup("numbertoggle", {})
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
   group = numbertoggle,
@@ -125,5 +115,13 @@ vim.g.neovide_cursor_animate_command_line = true
 vim.g.neovide_cursor_vfx_mode = "" -- empty "", railgun, torpedo, pixiedust, sonicboom, ripple, wireframe
 vim.g.neovide_profiler = false
 vim.g.neovide_input_macos_option_key_is_meta = "none"
+-- Fixes macos clipboard copy paste when using neovide
+vim.g.neovide_input_use_logo = 1
+if vim.g.neovide then
+  vim.keymap.set("v", "<D-c>", '"+y') -- Copy
+  vim.keymap.set({ "n", "v", "s", "x", "o", "i", "l", "c", "t" }, "<D-v>", function()
+    vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
+  end, { noremap = true, silent = true })
+end
 
 ---------------------------

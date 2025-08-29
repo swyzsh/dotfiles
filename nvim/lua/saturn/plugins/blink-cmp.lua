@@ -2,7 +2,12 @@ return {
   "saghen/blink.cmp",
   -- event = "InsertEnter",
   dependencies = {
-    "rafamadriz/friendly-snippets", -- snippet source
+    {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*",
+      build = "make install_jsregexp",
+      dependencies = { "rafamadriz/friendly-snippets" },
+    },
   },
 
   -- use a release tag to download pre-built binaries
@@ -100,7 +105,7 @@ return {
       },
     },
 
-    snippets = { preset = "default" },
+    snippets = { preset = "luasnip" },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
