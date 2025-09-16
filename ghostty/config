@@ -7,10 +7,11 @@ desktop-notifications = true
 confirm-close-surface = false
 quit-after-last-window-closed = true
 shell-integration-features = no-cursor
-mouse-scroll-multiplier = 0.75
+# mouse-scroll-multiplier = 0.75
+mouse-scroll-multiplier = 1.00
 
 # -- Colors --
-theme = catppuccin-mocha
+# theme = catppuccin-mocha
 # theme = tokyonight_night
 # theme = nightfox
 # theme = terafox 
@@ -19,7 +20,7 @@ theme = catppuccin-mocha
 # theme = vesper
 # theme = Kanagawa Dragon
 # theme = kanso-ink
-# theme = kanso-zen
+theme = kanso-zen
 
 # -- Appearance --
 cursor-style = block

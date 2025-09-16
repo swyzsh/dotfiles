@@ -383,4 +383,4 @@ return {
   },
 }
 
--- NOTE: <a-w> (ALT+w) toggles focus in a picker window bw all windows
+-- NOTE: <a-w> (ALT+w) cycles between picker windows

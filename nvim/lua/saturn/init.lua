@@ -114,7 +114,7 @@ vim.g.neovide_cursor_animate_in_insert_mode = true
 vim.g.neovide_cursor_animate_command_line = true
 vim.g.neovide_cursor_vfx_mode = "" -- empty "", railgun, torpedo, pixiedust, sonicboom, ripple, wireframe
 vim.g.neovide_profiler = false
-vim.g.neovide_input_macos_option_key_is_meta = "none"
+vim.g.neovide_input_macos_option_key_is_meta = "only_left" -- "both", "only_left", "only_right", "none"
 -- Fixes macos clipboard copy paste when using neovide
 vim.g.neovide_input_use_logo = 1
 if vim.g.neovide then
