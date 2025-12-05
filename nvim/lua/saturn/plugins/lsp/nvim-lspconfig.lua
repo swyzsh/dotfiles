@@ -25,6 +25,7 @@ return {
         -- "emmet_ls",
         "eslint",
         "html",
+        "hyprls",
         -- "julials",
         "lua_ls",
         "marksman",
