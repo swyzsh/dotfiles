@@ -1,9 +1,5 @@
 return {
   "folke/snacks.nvim",
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    { "echasnovski/mini.nvim", version = false },
-  },
   priority = 1000,
   lazy = false,
   ---@type snacks.Config
@@ -50,8 +46,8 @@ return {
       },
     },
     explorer = {
-      enabled = true,
-      replace_netrw = true,
+      enabled = false,
+      replace_netrw = false,
     },
     image = {
       enabled = false,
@@ -74,8 +70,8 @@ return {
           show_empty = true,
           layout = {
             layout = {
-              box = "vertical",
-              width = 36,
+              width = 34,
+              position = "left",
               border = "none",
             },
           },
@@ -158,13 +154,13 @@ return {
       end,
       desc = "Smart Find Files",
     },
-    {
-      "<leader>e",
-      function()
-        Snacks.explorer()
-      end,
-      desc = "File Explorer",
-    },
+    -- {
+    --   "<leader>e",
+    --   function()
+    --     Snacks.explorer()
+    --   end,
+    --   desc = "File Explorer",
+    -- },
     {
       "<leader>:",
       function()

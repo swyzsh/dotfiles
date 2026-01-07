@@ -88,6 +88,13 @@ vim.keymap.set("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
 
+-------------
+-- Context --
+-------------
+vim.keymap.set("n", "[c", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { desc = "Jump to context (upwards)", silent = true })
+
 -----------------
 -- Diagnostics --
 -----------------

@@ -13,7 +13,8 @@ return {
       keywordStyle = { italic = true },
       statementStyle = {},
       typeStyle = {},
-      transparent = false, -- do not set background color
+      transparent = not vim.g.neovide, -- transparent only when NOT in neovide
+      -- transparent = true,
       dimInactive = false, -- dim inactive window `:h hl-NormalNC`
       terminalColors = true, -- define vim.g.terminal_color_{0,17}
       colors = { -- add/modify theme and palette colors
@@ -23,9 +24,9 @@ return {
       overrides = function(colors) -- add/modify highlights
         return {}
       end,
-      theme = "zen", -- Load "zen" theme | Zen | Ink | Mist | Pearl
+      theme = "ink", -- Load "zen" theme | Zen | Ink | Mist | Pearl
       background = { -- map the value of 'background' option to a theme
-        dark = "zen", -- try "ink" !
+        dark = "ink", -- try "ink" !
         light = "pearl", -- try "mist" !
       },
     })

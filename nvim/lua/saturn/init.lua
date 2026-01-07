@@ -18,7 +18,9 @@ vim.cmd.colorscheme("kanso")
 vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#393B44" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#393B44" }) -- #393B44 | #5C6066
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#393B44" })
--------------
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = nil }) -- #14171d | nil
+vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "#393B44" })
+vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = true, sp = "#393B44" })
 --------------------------------------------------------------------------------
 
 -- Toggle relative line numbers based on relevant modes
@@ -67,6 +69,7 @@ vim.diagnostic.config({
 vim.o.winborder = "rounded" -- Options: "single", "double", "rounded", "shadow"
 
 vim.opt.tabstop = 2 -- Number of sapces that a tab represents
+vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2 -- Number of spaces to use for each indentation level
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.autoindent = true -- Copy indent from current line when starting a new one
@@ -94,11 +97,12 @@ vim.opt.guicursor =
 -- Neovide Settings --
 ---------------------------
 
-vim.g.neovide_refresh_rate = 165 -- match this to device limit
+vim.g.neovide_refresh_rate = 165 -- match this to device limit (only works if not using vsync)
 vim.g.neovide_remember_window_size = true
 vim.g.neovide_show_border = true
-vim.g.neovide_opacity = 1.0 -- default: 0.8
-vim.g.neovide_window_blurred = false
+-- vim.g.neovide_opacity = 0.85
+-- vim.g.neovide_normal_opacity = 0.85
+-- vim.g.neovide_window_blurred = true
 vim.g.neovide_floating_blur_amount_x = 16.0 -- default: 2.0
 vim.g.neovide_floating_blur_amount_y = 16.0 -- default: 2.0
 vim.g.neovide_padding_top = 12
