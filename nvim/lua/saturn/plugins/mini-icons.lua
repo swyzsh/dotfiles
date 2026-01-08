@@ -10,14 +10,14 @@ return {
     specs = {
       { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
     },
-    -- init = function()
-    --   package.preload["nvim-web-devicons"] = function()
-    --     require("mini.icons").mock_nvim_web_devicons()
-    --     return package.loaded["nvim-web-devicons"]
-    --   end
-    -- end,
+    init = function()
+      package.preload["nvim-web-devicons"] = function()
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    end,
     config = function(_, opts)
-      require("mini.icons").setup(opts) -- Call setup() with options
+      require("mini.icons").setup(opts)
     end,
   },
 }

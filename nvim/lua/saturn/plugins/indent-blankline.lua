@@ -21,8 +21,10 @@ return {
       -- vim.api.nvim_set_hl(0, "IndentBlanklinePassive", { fg = "#585b70" }) -- Catppuccin
       -- vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#7a9bd1" }) -- Nightfox
       -- vim.api.nvim_set_hl(0, "IndentBlanklinePassive", { fg = "#475569" }) -- Nightfox
-      vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#eac5ae" }) -- Oldworld
-      vim.api.nvim_set_hl(0, "IndentBlanklinePassive", { fg = "#353539" }) -- Oldworld
+      -- vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#eac5ae" }) -- Oldworld
+      -- vim.api.nvim_set_hl(0, "IndentBlanklinePassive", { fg = "#353539" }) -- Oldworld
+      vim.api.nvim_set_hl(0, "IndentBlanklineScope", { fg = "#393B44" }) -- Kanso Ink
+      vim.api.nvim_set_hl(0, "IndentBlanklinePassive", { fg = "#393B44" }) -- Kanso Ink
     end)
 
     return {

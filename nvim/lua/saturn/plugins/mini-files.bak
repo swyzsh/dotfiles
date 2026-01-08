@@ -66,16 +66,16 @@ return {
       {
         "<leader>e",
         function()
-          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+          require("mini.files").open(vim.uv.cwd(), true)
         end,
-        desc = "File explorer (Directory of Current File)",
+        desc = "Open mini.files (cwd)",
       },
       {
         "<leader>E",
         function()
-          require("mini.files").open(vim.uv.cwd(), true)
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
         end,
-        desc = "Open mini.files (cwd)",
+        desc = "File explorer (Directory of Current File)",
       },
     },
   },
