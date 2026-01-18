@@ -94,23 +94,33 @@ return {
 
     require("nvim-tree").setup({
       on_attach = my_on_attach,
+      update_focused_file = {
+        enable = true,
+      },
 
       view = {
         side = "left",
         preserve_window_proportions = false,
         signcolumn = "no",
-        width = 30,
+        adaptive_size = false,
+        width = 30, -- 30
         float = {
-          enable = false,
+          enable = true,
           quit_on_focus_loss = true,
-          open_win_config = {
-            relative = "editor",
-            border = "rounded",
-            width = 50,
-            height = 35,
-            row = 1,
-            col = 1,
-          },
+          open_win_config = function()
+            local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+            -- Calculate height to match row gap (screen_h - 1 (top gap) - 1 (bottom gap))
+            local window_h = screen_h - 2
+
+            return {
+              relative = "editor",
+              border = "rounded",
+              width = 57,
+              height = window_h, -- window_h | 30 | 38
+              row = 1,
+              col = 1,
+            }
+          end,
         },
       },
       renderer = {
@@ -141,11 +151,47 @@ return {
               color = true,
             },
           },
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = true,
+            git = true,
+            modified = true,
+            hidden = false,
+            diagnostics = true,
+            bookmarks = true,
+          },
+          glyphs = {
+            default = "",
+            symlink = "",
+            bookmark = "󰆤",
+            modified = "●",
+            hidden = "󰜌",
+            folder = {
+              arrow_closed = "",
+              arrow_open = "",
+              default = "",
+              open = "",
+              empty = "",
+              empty_open = "",
+              symlink = "",
+              symlink_open = "",
+            },
+            git = {
+              unstaged = "✗",
+              staged = "✓",
+              unmerged = "",
+              renamed = "➜",
+              untracked = "★",
+              deleted = "", -- 
+              ignored = "◌",
+            },
+          },
         },
       },
       filters = {
         enable = true,
-        git_ignored = true,
+        git_ignored = false,
         dotfiles = false,
         custom = { ".DS_Store" },
       },

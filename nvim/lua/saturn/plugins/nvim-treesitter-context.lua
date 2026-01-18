@@ -17,7 +17,7 @@ return {
     }):map("<leader>ut")
 
     return {
-      mode = "cursor",
+      mode = "topline", -- "cursor" | "topline"
       max_lines = 3,
       separator = nil,
     }

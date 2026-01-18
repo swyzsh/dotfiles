@@ -64,16 +64,17 @@ return {
           exclude = {
             "**/.DS_Store",
           },
-          auto_close = false,
+          auto_close = true,
           diagnostics = false,
           git_status = true,
           show_empty = true,
           layout = {
-            layout = {
-              width = 34,
-              position = "left",
-              border = "none",
-            },
+            preset = "default", -- centers it like fuzzy finder
+            -- layout = {
+            --   width = 34,
+            --   position = "left",
+            --   border = "none",
+            -- },
           },
           win = {
             list = {
@@ -154,13 +155,13 @@ return {
       end,
       desc = "Smart Find Files",
     },
-    -- {
-    --   "<leader>e",
-    --   function()
-    --     Snacks.explorer()
-    --   end,
-    --   desc = "File Explorer",
-    -- },
+    {
+      "<leader>e",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File Explorer",
+    },
     {
       "<leader>:",
       function()

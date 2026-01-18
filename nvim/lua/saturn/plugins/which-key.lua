@@ -94,6 +94,8 @@ return {
       { "<leader>]t", icon = " ", group = "Next todo comment" },
 
       { "<leader>u", icon = { icon = "󰉼", color = "purple" }, group = "UI Toggles" },
+
+      { "gs", icon = { icon = "", color = "azure" }, group = "Surround" },
     })
 
     wk.setup(opts)
