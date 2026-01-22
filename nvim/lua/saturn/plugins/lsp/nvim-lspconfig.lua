@@ -79,6 +79,24 @@ return {
       },
     })
 
+    -- vim.lsp.config("vtsls", {
+    --   capabilities = capabilities,
+    --   settings = {
+    --     typescript = {
+    --       preferences = {
+    --         -- Removes the .js extension imports whenever possible
+    --         importModuleSpecifierEnding = "minimal",
+    --       },
+    --     },
+    --     javascript = {
+    --       preferences = {
+    --         -- Removes the .js extension imports whenever possible
+    --         importModuleSpecifierEnding = "minimal",
+    --       },
+    --     },
+    --   },
+    -- })
+
     vim.g.rust_recommended_style = 0
   end,
 }

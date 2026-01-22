@@ -22,6 +22,7 @@ vim.api.nvim_set_hl(0, "TreesitterContext", { bg = nil }) -- #14171d | nil
 vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "#393B44" })
 vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = true, sp = "#393B44" })
 vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", { fg = "#4b4e57" })
+vim.api.nvim_set_hl(0, "Folded", { bg = nil }) -- "#22262D" | nil
 --------------------------------------------------------------------------------
 
 -- Toggle relative line numbers based on relevant modes
